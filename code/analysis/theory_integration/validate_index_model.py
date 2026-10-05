@@ -10,7 +10,7 @@ import os
 import sys
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / 'artifacts/theory_mechanism_revision_20260918/checks'
+OUT = ROOT / 'results/fixed_matrix'
 os.environ.setdefault('MPLCONFIGDIR', str(OUT / 'mpl_cache'))
 os.environ.setdefault('VECLIB_MAXIMUM_THREADS', '1')
 os.environ.setdefault('OPENBLAS_NUM_THREADS', '1')
@@ -19,7 +19,7 @@ import numpy as np
 from scipy.linalg import svd, solve
 from scipy.optimize import brentq
 
-DESIGN = dict(base='artifacts/svd_perturbation_theory/sweep.npz',
+DESIGN = dict(base='results/svd_perturbation/sweep.npz',
               base_seed=20260916, dimension=256, draw_seed=20260918,
               draws=64, strengths=[1e-7, 1e-4, 1e-3, 1e-2, 1e-1],
               methods=['dense', 'rank8', 'full_cayley', 'block32_cayley'],
@@ -203,7 +203,8 @@ def plot():
     fig.legend(handles,labels,loc='lower center',bbox_to_anchor=(.5,-.13),ncol=3,fontsize=7)
     fig.subplots_adjust(left=.09,right=.99,bottom=.23,top=.88,wspace=.38)
     style.prepare(fig)
-    path=ROOT/'paper/figures/spectral_index_validation.pdf'
+    path=ROOT/'figures/spectral_index_validation.pdf'
+    path.parent.mkdir(parents=True,exist_ok=True)
     fig.savefig(path,bbox_inches='tight',pad_inches=.035)
     plt.close(fig)
     (OUT/'figure_provenance.json').write_text(json.dumps({'figure':str(path.relative_to(ROOT)),

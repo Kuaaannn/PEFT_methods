@@ -1,5 +1,0 @@
-\subsection{28-object comparison}
-\Cref{tab:diffusion}b reports every validation-selected capacity pair. Each score first averages the 28 objects within a seed, then reports the mean and sample SD across seeds. The shared-LR selection and evaluation banks are specified in Appendix~\ref{app:settings}.
-
-\paragraph{Retention across objects and metrics.}
-At the validation-selected settings, OFT has lower COCO flow loss at three of four capacities. LoRA has lower general-image drift and higher prompt alignment at every capacity. The same distinction appears at a shared LR of $5\times10^{-5}$, where OFT b64 has lower COCO loss than LoRA r8, but higher image drift and lower CLIP. Flow loss evaluates velocity predictions on fixed noisy latents, whereas drift and CLIP evaluate the final generated images. The object comparison supports LoRA's retention advantage in generated outputs and shows why the metrics capture different aspects of preservation.

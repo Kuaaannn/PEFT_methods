@@ -43,6 +43,7 @@ code/LoRA-OFT/task_harnesses/data/
 code/LoRA-OFT/task_harnesses/vendor/
 code/LoRA-OFT/task_harnesses/runtime/
 code/artifacts/
+code/results/
 code/LoRA_OFT_image_generation/subjects/
 code/LoRA_OFT_image_generation/forgetting-cache/
 code/LoRA_OFT_image_generation/results*/
@@ -52,12 +53,3 @@ code/LoRA_OFT_image_generation/sample-images/
 code/LoRA_OFT_image_generation/runs/
 code/LoRA_OFT_image_generation/samples*/
 code/LoRA_OFT_image_generation/experiments/*/paper-*/
-
-# LaTeX build products. The manuscript PDF and figure sources are included.
-*.aux
-*.blg
-*.fdb_latexmk
-*.fls
-*.out
-*.synctex.gz
-*.toc

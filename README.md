@@ -1,12 +1,12 @@
 # Are Parameter-Efficient Fine-tuning Methods Really Different?
 
-Code and arXiv manuscript by Yikuan Li, Pinyan Lu and Fanghui Liu.
+Experiment code by Yikuan Li, Pinyan Lu and Fanghui Liu.
 
-This repository provides the paper experiments for LoRA, DoRA, PiSSA, MiLoRA, OFT and HRA. It covers mathematics and coding adaptation, FLUX cat personalization, the 28-object study, geometric measurements, spectral restoration and component interventions, synthetic experiments, and the PEFT literature review.
+This repository provides experiments for LoRA, DoRA, PiSSA, MiLoRA, OFT and HRA. It covers mathematics and coding adaptation, FLUX cat personalization, the 28-object study, geometric measurements, spectral restoration and component interventions, and synthetic experiments.
 
 ## Requirements
 
-Use Linux, Python 3.12 and CUDA GPUs with BF16 support for model experiments. Training uses one GPU per run. The paper used A100 GPUs. Mathematics interventions require two GPUs, one for analysis and one for vLLM evaluation. Synthetic experiments and literature analysis run on a CPU.
+Use Linux, Python 3.12 and CUDA GPUs with BF16 support for model experiments. Training uses one GPU per run. The experiments use A100 GPUs. Mathematics interventions require two GPUs, one for analysis and one for vLLM evaluation. Synthetic experiments run on a CPU.
 
 Obtain access to the gated Hugging Face models using your own account. After installing the training environment, authenticate with `.venvs/train/bin/hf auth login`. Coding evaluation also requires Apptainer or Singularity.
 
@@ -40,18 +40,16 @@ See [the experiment guide](docs/experiments.md) for the full grids, coding, imag
 
 The full grids contain 540 mathematics runs, 180 coding runs, 576 cat runs and 2,016 object runs. The HRA extension adds 18 runs. Selection uses development scores only. Image training records both splits, and selection reads validation scores at step 700. Reports average objects within each seed before computing the mean and sample standard deviation over seeds.
 
-## Synthetic experiments, literature and manuscript
+## Synthetic experiments
 
 ```bash
 python3 scripts/setup.py analysis
 python3 scripts/theory.py --plots
-python3 scripts/literature.py --plot
-python3 scripts/build_paper.py
 ```
 
-Plotting requires pdfLaTeX. Building the manuscript requires `latexmk` and pdfLaTeX on `PATH`. The manuscript source and PDF are in [paper/](paper/). Builds and analysis outputs are written under the output directory.
+Plotting requires a complete TeX installation with `latex`, `dvipng` and the Times font packages. Outputs are written under the chosen output directory. Omit `--plots` to run the numerical experiments without TeX.
 
-The `data/` directory contains the frozen retention sample and literature annotations needed as inputs. Generated experiment results, checkpoints and development artifacts are not included.
+The `data/` directory contains the frozen 200-document retention sample used by the language experiments.
 
 ## Acknowledgments
 

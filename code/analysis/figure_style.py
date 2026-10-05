@@ -12,7 +12,7 @@ import numpy as np
 from matplotlib.collections import PathCollection, LineCollection
 from matplotlib.container import BarContainer, ErrorbarContainer
 from matplotlib.ticker import LogLocator
-from paper_palette import PALETTE, METHOD_COLORS, PALETTE_INPUTS, metadata as palette_metadata
+from plot_palette import PALETTE, METHOD_COLORS, PALETTE_INPUTS, metadata as palette_metadata
 
 COLORS = METHOD_COLORS
 RESTORED = PALETTE['RestoredColor']
@@ -40,7 +40,7 @@ def configure():
     os.environ['PATH'] = str(selected) + os.pathsep + os.environ.get('PATH', '')
     mpl.rcParams.update({
         'text.usetex': True,
-        # Avoid mathptmx: the ICLR manuscript uses Times text and CM mathematics.
+        # Use Times text with Computer Modern mathematics.
         'font.family': 'serif', 'font.serif': ['serif'],
         'font.sans-serif': ['Helvetica'], 'font.monospace': ['Courier'],
         'text.latex.preamble': r'\usepackage{times}',
@@ -204,8 +204,7 @@ def prepare(fig):
 
 
 def metadata():
-    return {**palette_metadata(), 'theme': 'Reference-informed scientific palette / ICLR Times and Computer Modern',
+    return {**palette_metadata(), 'theme': 'Scientific palette with Times and Computer Modern',
             'text_engine': 'LaTeX', 'preamble': r'\usepackage{times}',
-            'font_match': 'same Times text family and Computer Modern mathematics as paper/main.tex',
             'method_colors': COLORS, 'theme_path': STYLE_INPUTS[0],
             'theme_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}

@@ -1,13 +1,13 @@
-"""Publication plots and TeX numbers for the standalone synthetic theory note."""
+"""Plots and numerical summaries for the synthetic SVD experiments."""
 from pathlib import Path
 import json,os,sys
 ROOT=Path(__file__).resolve().parents[2]
-OUT=ROOT/'artifacts/svd_perturbation_theory'
+OUT=ROOT/'results/svd_perturbation'
 os.environ['MPLCONFIGDIR']=str(OUT/'mpl_cache')
 import numpy as np
 sys.path.insert(0,str(ROOT/'analysis'))
 from figure_style import configure
-from paper_palette import PALETTE
+from plot_palette import PALETTE
 configure()
 import matplotlib as _mpl
 _mpl.rcParams['text.latex.preamble'] += r'\usepackage{bm}'
@@ -147,26 +147,6 @@ for side in [0,1]:
 axs[0,0].legend(fontsize=7.2,loc='lower center')
 finish(fig,'subspaces')
 
-# All paper-facing numeric cells are derived from the saved result arrays.
-rows=[];k=int(np.argmin(abs(g-.01)))
-for m in range(4):
-    av,sd=mean_sd_band(k,0);bv,bd=mean_sd_band(k,1)
-    f=lambda mean,std:rf'${mean:.2f}_{{\pm {std:.2f}}}$'
-    rows.append(names[m]+' & '+' & '.join(f(av[m,j],sd[m,j]) for j in range(3))+
-                ' & '+' & '.join(f(bv[m,j],bd[m,j]) for j in range(3))+r' \\')
-(Path(__file__).parent/'generated_angles.tex').write_text('\n'.join(rows)+'\n')
-rows=[]
-for r in D['moment_checks'][:4]:
-    rows.append(r['kind'].replace('rank','Rank ')+rf" & ${256*r['spectral_fraction_mean']:.4f}_{{\pm {256*r['spectral_fraction_se']:.4f}}}$"+
-                ' & '+' & '.join(rf"${mean:.2f}_{{\pm {se:.2f}}}$" for mean,se in zip(r['band_rates_mean'][0],r['band_rates_se'][0]))+r' \\')
-(Path(__file__).parent/'generated_moments.tex').write_text('\n'.join(rows)+'\n')
-rows=[]
-for gamma in [.1,1,10]:
-    k=int(np.argmin(abs(g-gamma)));q=np.sqrt(1+gamma**2);predangle=np.degrees(np.arccos(abs(4/(1+q)-1)))
-    obs=(A['angles'][:,2,k,1,:]*180/np.pi).mean(axis=-1)
-    disp=A['displacement'][:,2,k]
-    rows.append(rf"${gamma:g}$ & ${predangle:.3f}$ & ${obs.mean():.3f}_{{\pm {obs.std(ddof=1):.3f}}}$ & ${2000*gamma/(1+q):.3f}$ & ${1000*disp.mean():.3f}_{{\pm {1000*disp.std(ddof=1):.3f}}}$ \\")
-(Path(__file__).parent/'generated_cayley.tex').write_text('\n'.join(rows)+'\n')
 summary={'chi_rms_bands':[float(np.sqrt(A['chi'][b].mean())) for b in bands],
          'chi_squared_bands':[float(A['chi'][b].mean()) for b in bands],
          'normalized_full_rates_bands':[float(A['full_skew_rates'][b].mean()) for b in bands],

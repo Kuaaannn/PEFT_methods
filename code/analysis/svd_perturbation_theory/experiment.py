@@ -1,4 +1,4 @@
-"""Fixed-matrix SVD perturbation checks. Never reads or changes manuscript data.
+"""Fixed-matrix SVD perturbation experiments.
 
 Run from the workspace root with .venv/bin/python. All arrays are float64.
 The theory uses conditional expectations given one fixed base matrix.
@@ -20,7 +20,7 @@ from scipy.linalg import solve, svd
 from scipy.special import roots_laguerre
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / "artifacts/svd_perturbation_theory"
+OUT = ROOT / "results/svd_perturbation"
 METHODS = ["dense", "rank8", "full_cayley", "block32_cayley"]
 
 

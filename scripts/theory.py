@@ -3,7 +3,7 @@ import argparse
 from pathlib import Path
 import shutil
 
-from common import CODE, ROOT, execute, python, shared_options
+from common import CODE, execute, python, shared_options
 
 
 def main():
@@ -12,15 +12,12 @@ def main():
     p.add_argument("--plots", action="store_true", help="Also render the original figures using a local TeX installation")
     a = p.parse_args(); work = a.output.resolve() / "theory"
     if not a.dry_run:
-        for name in ("analysis", "paper/figures", "paper/generated"):
+        for name in ("analysis", "figures"):
             (work / name).mkdir(parents=True, exist_ok=True)
         for pth in (CODE / "analysis").rglob("*.py"):
-            if pth.name == "render_literature.py":
-                continue
             target = work / pth.relative_to(CODE)
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(pth, target)
-        shutil.copy2(ROOT / "paper/palette.tex", work / "paper/palette.tex")
     execute([python("analysis"), work / "analysis/svd_perturbation_theory/experiment.py"], cwd=work,
             env_name="analysis", dry_run=a.dry_run)
     # Import from the copied workspace so all original relative output paths resolve there.

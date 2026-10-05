@@ -22,4 +22,4 @@ To use an existing compatible environment, set `PAPER_TRAIN_PYTHON`, `PAPER_EVAL
 - [PiSSA data](https://huggingface.co/datasets/fxmeng/pissa-dataset) and [EvalPlus](https://github.com/evalplus/evalplus)
 - [Cat images](https://huggingface.co/datasets/peft-internal-testing/cat-image-dataset), [DreamBooth objects](https://huggingface.co/datasets/google/dreambooth) and [COCO mirror](https://huggingface.co/datasets/sayakpaul/coco-30-val-2014)
 
-Model and dataset licenses remain with their respective providers. The bundled literature CSVs contain reviewed annotations and source references, not copies of the reviewed papers or repositories.
+Model and dataset licenses remain with their respective providers.

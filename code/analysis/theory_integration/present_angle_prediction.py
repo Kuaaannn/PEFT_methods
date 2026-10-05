@@ -6,7 +6,7 @@ import os
 import sys
 
 ROOT=Path(__file__).resolve().parents[2]
-OUT=ROOT/'artifacts/theory_angle_presentation_20260918'
+OUT=ROOT/'results/angle_prediction'
 os.environ.setdefault('VECLIB_MAXIMUM_THREADS','1')
 os.environ.setdefault('OPENBLAS_NUM_THREADS','1')
 os.environ.setdefault('MPLCONFIGDIR',str(OUT/'mpl_cache'))
@@ -60,7 +60,7 @@ def plot():
     import figure_style as style
     style.configure()
     a=np.load(OUT/'quantile_endpoints.npz')
-    old=ROOT/'artifacts/theory_mechanism_revision_20260918/checks/fixed_matrix_validation.npz'
+    old=ROOT/'results/fixed_matrix/fixed_matrix_validation.npz'
     b=np.load(old)
     n=DESIGN['n'];gamma=DESIGN['gamma'];degrees=180/np.pi
     bins=np.array_split(np.arange(n),DESIGN['bins'])
@@ -125,7 +125,8 @@ def plot():
     ax[1].legend(handles=handles,loc='center right',fontsize=6.8,labelspacing=.25)
     fig.subplots_adjust(left=.09,right=.99,top=.87,bottom=.21,wspace=.34)
     style.prepare(fig)
-    figure=ROOT/'paper/figures/spectral_angle_prediction.pdf'
+    figure=ROOT/'figures/spectral_angle_prediction.pdf'
+    figure.parent.mkdir(parents=True,exist_ok=True)
     fig.savefig(figure,bbox_inches='tight',pad_inches=.035);plt.close(fig)
     report=dict(design=DESIGN,quantile_bins=rows,gaussian_bands=gaussian_rows,
         quantile_max_abs_z=max(abs(row['z_exact']) for row in rows),
@@ -133,17 +134,9 @@ def plot():
         bulk_mean_absolute_relative_angle_error=float(np.mean([abs(row['observed_deg']/row['bulk_prediction_deg']-1) for row in rows])),
         gaussian_max_abs_z=max(abs(row['z']) for row in gaussian_rows),
         inputs={str(p.relative_to(ROOT)):sha(p) for p in [OUT/'quantile_endpoints.npz',old,
-                    Path(__file__),Path(__file__).with_name('validate_index_model.py'),ROOT/'paper/palette.tex']},
+                    Path(__file__),Path(__file__).with_name('validate_index_model.py'),ROOT/'analysis/plot_palette.py']},
         figure_sha256=sha(figure))
     (OUT/'angle_prediction_report.json').write_text(json.dumps(report,indent=2)+'\n')
-    tex=r'''\begin{figure}[t]\centering
-\includegraphics[width=\linewidth]{figures/spectral_angle_prediction.pdf}
-\caption{Predicted versus measured angles at $\gamma=1\times10^{-4}$, with 64 updates per family and no fitted constants. (a) A fixed $512\times512$ quantile-spectrum matrix: rank-eight left/right angles across 16 contiguous bins. The bulk formula has BULK_ERROR mean absolute relative angle error. (b) A fixed $256\times256$ Gaussian matrix: actual-gap additive predictions and flat block-32 Cayley predictions. Markers show RMS angles; bars propagate two Monte Carlo standard errors.}
-\label{fig:angle-prediction}
-\end{figure}
-'''
-    tex=tex.replace('BULK_ERROR',f"{100*report['bulk_mean_absolute_relative_angle_error']:.1f}"+r'\%')
-    (ROOT/'paper/generated/spectral_angle_prediction.tex').write_text(tex)
     print(json.dumps({k:report[k] for k in ['quantile_max_abs_z','quantile_mean_absolute_relative_angle_error','gaussian_max_abs_z']},indent=2))
 
 
