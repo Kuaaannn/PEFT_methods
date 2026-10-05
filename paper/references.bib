@@ -1,0 +1,690 @@
+% References. Citation keys are local; source metadata is retained.
+
+@article{huang2026peftarena,
+      title={{PEFT-Arena}: Understanding Parameter-Efficient Finetuning from a Stability-Plasticity Perspective},
+      author={Huang, Yangyi and Peng, Ruotian and Qiu, Zeju and Kang, Jiale and Wen, Yandong and Sch\"olkopf, Bernhard and Liu, Weiyang},
+      journal={arXiv preprint arXiv:2605.28819},
+      year={2026}}
+
+@inproceedings{
+hu2022lora,
+title={Lo{RA}: Low-Rank Adaptation of Large Language Models},
+author={Edward J Hu and Yelong Shen and Phillip Wallis and Zeyuan Allen-Zhu and Yuanzhi Li and Shean Wang and Lu Wang and Weizhu Chen},
+booktitle={International Conference on Learning Representations},
+year={2022},
+url={https://openreview.net/forum?id=nZeVKeeFYf9}
+}
+
+@inproceedings{qiu2023oft,
+ author = {Qiu, Zeju and Liu, Weiyang and Feng, Haiwen and Xue, Yuxuan and Feng, Yao and Liu, Zhen and Zhang, Dan and Weller, Adrian and Sch\"{o}lkopf, Bernhard},
+ booktitle = {Advances in Neural Information Processing Systems},
+ doi = {10.52202/075280-3472},
+ editor = {A. Oh and T. Naumann and A. Globerson and K. Saenko and M. Hardt and S. Levine},
+ pages = {79320--79362},
+ publisher = {Curran Associates, Inc.},
+ title = {Controlling Text-to-Image Diffusion by Orthogonal Finetuning},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2023/file/faacb7a4827b4d51e201666b93ab5fa7-Paper-Conference.pdf},
+ volume = {36},
+ year = {2023}
+}
+
+@InProceedings{liu2024dora,
+  title = 	 {{D}o{RA}: Weight-Decomposed Low-Rank Adaptation},
+  author =       {Liu, Shih-Yang and Wang, Chien-Yi and Yin, Hongxu and Molchanov, Pavlo and Wang, Yu-Chiang Frank and Cheng, Kwang-Ting and Chen, Min-Hung},
+  booktitle = 	 {Proceedings of the 41st International Conference on Machine Learning},
+  pages = 	 {32100--32121},
+  year = 	 {2024},
+  editor = 	 {Salakhutdinov, Ruslan and Kolter, Zico and Heller, Katherine and Weller, Adrian and Oliver, Nuria and Scarlett, Jonathan and Berkenkamp, Felix},
+  volume = 	 {235},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {21--27 Jul},
+  publisher =    {PMLR},
+  pdf = 	 {https://raw.githubusercontent.com/mlresearch/v235/main/assets/liu24bn/liu24bn.pdf},
+  url = 	 {https://proceedings.mlr.press/v235/liu24bn.html},
+  abstract = 	 {Among the widely used parameter-efficient fine-tuning (PEFT) methods, LoRA and its variants have gained considerable popularity because of avoiding additional inference costs. However, there still often exists an accuracy gap between these methods and full fine-tuning (FT). In this work, we first introduce a novel weight decomposition analysis to investigate the inherent differences between FT and LoRA. Aiming to resemble the learning capacity of FT from the findings, we propose Weight-Decomposed Low-Rank Adaptation (DoRA). DoRA decomposes the pre-trained weight into two components, magnitude and direction, for fine-tuning, specifically employing LoRA for directional updates to efficiently minimize the number of trainable parameters. By employing DoRA, we enhance both the learning capacity and training stability of LoRA while avoiding any additional inference overhead. DoRA consistently outperforms LoRA on fine-tuning LLaMA, LLaVA, and VL-BART on various downstream tasks, such as commonsense reasoning, visual instruction tuning, and image/video-text understanding. The code is available at https://github.com/NVlabs/DoRA.}
+}
+
+@inproceedings{qiu2025oftv2,
+    title = "Orthogonal Finetuning Made Scalable",
+    author = {Qiu, Zeju  and
+      Liu, Weiyang  and
+      Weller, Adrian  and
+      Sch{\"o}lkopf, Bernhard},
+    editor = "Christodoulopoulos, Christos  and
+      Chakraborty, Tanmoy  and
+      Rose, Carolyn  and
+      Peng, Violet",
+    booktitle = "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2025",
+    address = "Suzhou, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.emnlp-main.1627/",
+    doi = "10.18653/v1/2025.emnlp-main.1627",
+    pages = "31946--31963",
+    ISBN = "979-8-89176-332-6"
+}
+
+@InProceedings{hayou2024loraplus,
+  title = 	 {{L}o{RA}+: Efficient Low Rank Adaptation of Large Models},
+  author =       {Hayou, Soufiane and Ghosh, Nikhil and Yu, Bin},
+  booktitle = 	 {Proceedings of the 41st International Conference on Machine Learning},
+  pages = 	 {17783--17806},
+  year = 	 {2024},
+  editor = 	 {Salakhutdinov, Ruslan and Kolter, Zico and Heller, Katherine and Weller, Adrian and Oliver, Nuria and Scarlett, Jonathan and Berkenkamp, Felix},
+  volume = 	 {235},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {21--27 Jul},
+  publisher =    {PMLR},
+  pdf = 	 {https://raw.githubusercontent.com/mlresearch/v235/main/assets/hayou24a/hayou24a.pdf},
+  url = 	 {https://proceedings.mlr.press/v235/hayou24a.html},
+  abstract = 	 {In this paper, we show that Low Rank Adaptation (LoRA) as originally introduced in (Hu et al., 2021) leads to suboptimal finetuning of models with large width. This is due to the fact that adapter matrices A and B in LoRA are updated with the same learning rate in ADAM. Using scaling arguments for large width networks, we demonstrate that the same learning rate does not allow efficient feature learning. We then show that this suboptimality of LoRA can be corrected simply by setting different learning rates for the LoRA adapter matrices A and B with a well-chosen fixed ratio. We call this proposed algorithm LoRA+. In our extensive experiments, LoRA+ improves finetuning speed (up to ∼ 2X SpeedUp) and performance (1% − 2% improvements), at the same computational cost as LoRA. The code is available at https://github.com/nikhil-ghosh-berkeley/loraplus}
+}
+
+@misc{kalajdzievski2023rslora,
+  doi = {10.48550/ARXIV.2312.03732},
+  url = {https://arxiv.org/abs/2312.03732},
+  author = {Kalajdzievski, Damjan},
+  keywords = {Computation and Language (cs.CL), Machine Learning (cs.LG), FOS: Computer and information sciences, FOS: Computer and information sciences, I.2.7},
+  title = {A Rank Stabilization Scaling Factor for Fine-Tuning with {LoRA}},
+  publisher = {arXiv},
+  year = {2023},
+  copyright = {arXiv.org perpetual, non-exclusive license}
+}
+
+@inproceedings{wang2024loraga,
+ author = {Wang, Shaowen and Yu, Linxi and Li, Jian},
+ booktitle = {Advances in Neural Information Processing Systems},
+ doi = {10.52202/079017-1741},
+ editor = {A. Globerson and L. Mackey and D. Belgrave and A. Fan and U. Paquet and J. Tomczak and C. Zhang},
+ pages = {54905--54931},
+ publisher = {Curran Associates, Inc.},
+ title = {{LoRA-GA}: Low-Rank Adaptation with Gradient Approximation},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2024/file/62c4718cc334f6a0a62fb81c4a2095a1-Paper-Conference.pdf},
+ volume = {37},
+ year = {2024}
+}
+
+@article{
+biderman2024loraforgetting,
+title={Lo{RA} Learns Less and Forgets Less},
+author={Dan Biderman and Jacob Portes and Jose Javier Gonzalez Ortiz and Mansheej Paul and Philip Greengard and Connor Jennings and Daniel King and Sam Havens and Vitaliy Chiley and Jonathan Frankle and Cody Blakeney and John Patrick Cunningham},
+journal={Transactions on Machine Learning Research},
+issn={2835-8856},
+year={2024},
+url={https://openreview.net/forum?id=aloEru2qCG},
+note={Featured Certification}
+}
+
+@InProceedings{wortsman2022wisefinetuning,
+    author    = {Wortsman, Mitchell and Ilharco, Gabriel and Kim, Jong Wook and Li, Mike and Kornblith, Simon and Roelofs, Rebecca and Lopes, Raphael Gontijo and Hajishirzi, Hannaneh and Farhadi, Ali and Namkoong, Hongseok and Schmidt, Ludwig},
+    title     = {Robust Fine-Tuning of Zero-Shot Models},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2022},
+    pages     = {7959-7971}
+}
+
+@InProceedings{kornblith2019cka,
+  title = 	 {Similarity of Neural Network Representations Revisited},
+  author =       {Kornblith, Simon and Norouzi, Mohammad and Lee, Honglak and Hinton, Geoffrey},
+  booktitle = 	 {Proceedings of the 36th International Conference on Machine Learning},
+  pages = 	 {3519--3529},
+  year = 	 {2019},
+  editor = 	 {Chaudhuri, Kamalika and Salakhutdinov, Ruslan},
+  volume = 	 {97},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {09--15 Jun},
+  publisher =    {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v97/kornblith19a/kornblith19a.pdf},
+  url = 	 {https://proceedings.mlr.press/v97/kornblith19a.html},
+  abstract = 	 {Recent work has sought to understand the behavior of neural networks by comparing representations between layers and between different trained models. We examine methods for comparing neural network representations based on canonical correlation analysis (CCA). We show that CCA belongs to a family of statistics for measuring multivariate similarity, but that neither CCA nor any other statistic that is invariant to invertible linear transformation can measure meaningful similarities between representations of higher dimension than the number of data points. We introduce a similarity index that measures the relationship between representational similarity matrices and does not suffer from this limitation. This similarity index is equivalent to centered kernel alignment (CKA) and is also closely connected to CCA. Unlike CCA, CKA can reliably identify correspondences between representations in networks trained from different initializations.}
+}
+
+@article{cawley2010selection,
+  author  = {Gavin C. Cawley and Nicola L. C. Talbot},
+  title   = {On Over-fitting in Model Selection and Subsequent Selection Bias in Performance Evaluation},
+  journal = {Journal of Machine Learning Research},
+  year    = {2010},
+  volume  = {11},
+  number  = {70},
+  pages   = {2079--2107},
+  url     = {http://jmlr.org/papers/v11/cawley10a.html}
+}
+
+@misc{vllm2026cacheapi,
+  title={{vLLM} v0.27.0 Scheduler Interface},
+  author={{vLLM Project}},
+  year={2026},
+  howpublished={Official versioned API documentation},
+  url={https://docs.vllm.ai/en/v0.27.0/api/vllm/v1/core/sched/interface/},
+  note={Accessed 2026-09-16}
+}
+
+@inproceedings{bouthillier2021variance,
+ author = {Bouthillier, Xavier and Delaunay, Pierre and Bronzi, Mirko and Trofimov, Assya and Nichyporuk, Brennan and Szeto, Justin and Mohammadi Sepahvand, Nazanin and Raff, Edward and Madan, Kanika and Voleti, Vikram and Ebrahimi Kahou, Samira and Michalski, Vincent and Arbel, Tal and Pal, Chris and Varoquaux, Gael and Vincent, Pascal},
+ booktitle = {Proceedings of Machine Learning and Systems},
+ editor = {A. Smola and A. Dimakis and I. Stoica},
+ pages = {747--769},
+ title = {Accounting for Variance in Machine Learning Benchmarks},
+ url = {https://proceedings.mlsys.org/paper_files/paper/2021/file/0184b0cd3cfb185989f858a1d9f5c1eb-Paper.pdf},
+ volume = {3},
+ year = {2021}
+}
+
+@InProceedings{ruiz2023dreambooth,
+    author    = {Ruiz, Nataniel and Li, Yuanzhen and Jampani, Varun and Pritch, Yael and Rubinstein, Michael and Aberman, Kfir},
+    title     = {{DreamBooth}: Fine Tuning Text-to-Image Diffusion Models for Subject-Driven Generation},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2023},
+    pages     = {22500-22510}
+}
+
+@article{
+oquab2023dinov2,
+title={{DINO}v2: Learning Robust Visual Features without Supervision},
+author={Maxime Oquab and Timoth{\'e}e Darcet and Th{\'e}o Moutakanni and Huy V. Vo and Marc Szafraniec and Vasil Khalidov and Pierre Fernandez and Daniel HAZIZA and Francisco Massa and Alaaeldin El-Nouby and Mido Assran and Nicolas Ballas and Wojciech Galuba and Russell Howes and Po-Yao Huang and Shang-Wen Li and Ishan Misra and Michael Rabbat and Vasu Sharma and Gabriel Synnaeve and Hu Xu and Herve Jegou and Julien Mairal and Patrick Labatut and Armand Joulin and Piotr Bojanowski},
+journal={Transactions on Machine Learning Research},
+issn={2835-8856},
+year={2024},
+url={https://openreview.net/forum?id=a68SUt6zFt},
+note={Featured Certification}
+}
+
+@inproceedings{yu2024metamath,
+ author = {Yu, Longhui and JIANG, Weisen and Shi, Han and YU, Jincheng and Liu, Zhengying and Zhang, Yu and Kwok, James and Li, Zhenguo and Weller, Adrian and Liu, Weiyang},
+ booktitle = {International Conference on Learning Representations},
+ editor = {B. Kim and Y. Yue and S. Chaudhuri and K. Fragkiadaki and M. Khan and Y. Sun},
+ pages = {45040--45061},
+ title = {{MetaMath}: Bootstrap Your Own Mathematical Questions for Large Language Models},
+ url = {https://proceedings.iclr.cc/paper_files/paper/2024/file/c400474e8a36d0812fdee52739288b12-Paper-Conference.pdf},
+ volume = {2024},
+ year = {2024}
+}
+
+@misc{bfl2026klein,
+ title={{FLUX.2-klein-base-4B} Model Card},author={{Black Forest Labs}},year={2026},
+ howpublished={Official model release},url={https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4B}
+}
+
+@InProceedings{radford2021clip,
+  title = 	 {Learning Transferable Visual Models From Natural Language Supervision},
+  author =       {Radford, Alec and Kim, Jong Wook and Hallacy, Chris and Ramesh, Aditya and Goh, Gabriel and Agarwal, Sandhini and Sastry, Girish and Askell, Amanda and Mishkin, Pamela and Clark, Jack and Krueger, Gretchen and Sutskever, Ilya},
+  booktitle = 	 {Proceedings of the 38th International Conference on Machine Learning},
+  pages = 	 {8748--8763},
+  year = 	 {2021},
+  editor = 	 {Meila, Marina and Zhang, Tong},
+  volume = 	 {139},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {18--24 Jul},
+  publisher =    {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v139/radford21a/radford21a.pdf},
+  url = 	 {https://proceedings.mlr.press/v139/radford21a.html},
+  abstract = 	 {State-of-the-art computer vision systems are trained to predict a fixed set of predetermined object categories. This restricted form of supervision limits their generality and usability since additional labeled data is needed to specify any other visual concept. Learning directly from raw text about images is a promising alternative which leverages a much broader source of supervision. We demonstrate that the simple pre-training task of predicting which caption goes with which image is an efficient and scalable way to learn SOTA image representations from scratch on a dataset of 400 million (image, text) pairs collected from the internet. After pre-training, natural language is used to reference learned visual concepts (or describe new ones) enabling zero-shot transfer of the model to downstream tasks. We study the performance of this approach by benchmarking on over 30 different existing computer vision datasets, spanning tasks such as OCR, action recognition in videos, geo-localization, and many types of fine-grained object classification. The model transfers non-trivially to most tasks and is often competitive with a fully supervised baseline without the need for any dataset specific training. For instance, we match the accuracy of the original ResNet-50 on ImageNet zero-shot without needing to use any of the 1.28 million training examples it was trained on.}
+}
+
+@misc{qwen2024model,
+    title = {Qwen2.5: A Party of Foundation Models},
+    url = {https://qwenlm.github.io/blog/qwen2.5/},
+    author = {{Qwen Team}},
+    month = {September},
+    year = {2024}
+}
+
+@InProceedings{lin2014coco,
+author="Lin, Tsung-Yi
+and Maire, Michael
+and Belongie, Serge
+and Hays, James
+and Perona, Pietro
+and Ramanan, Deva
+and Doll{\'a}r, Piotr
+and Zitnick, C. Lawrence",
+editor="Fleet, David
+and Pajdla, Tomas
+and Schiele, Bernt
+and Tuytelaars, Tinne",
+title="Microsoft {COCO}: Common Objects in Context",
+booktitle="Computer Vision -- ECCV 2014",
+year="2014",
+publisher="Springer International Publishing",
+address="Cham",
+pages="740--755",
+abstract="We present a new dataset with the goal of advancing the state-of-the-art in object recognition by placing the question of object recognition in the context of the broader question of scene understanding. This is achieved by gathering images of complex everyday scenes containing common objects in their natural context. Objects are labeled using per-instance segmentations to aid in precise object localization. Our dataset contains photos of 91 objects types that would be easily recognizable by a 4 year old. With a total of 2.5 million labeled instances in 328k images, the creation of our dataset drew upon extensive crowd worker involvement via novel user interfaces for category detection, instance spotting and instance segmentation. We present a detailed statistical analysis of the dataset in comparison to PASCAL, ImageNet, and SUN. Finally, we provide baseline performance analysis for bounding box and segmentation detection results using a Deformable Parts Model.",
+isbn="978-3-319-10602-1"
+}
+
+@misc{penedo2025finewiki,
+  author    = {Guilherme Penedo},
+  title     = {{FineWiki}},
+  year      = {2025},
+  publisher = {Hugging Face Datasets},
+  url       = {https://huggingface.co/datasets/HuggingFaceFW/finewiki},
+  urldate   = {2025-10-20},
+  note      = {Source: Wikimedia Enterprise Snapshot API (https://api.enterprise.wikimedia.com/v2/snapshots). Text licensed under CC BY-SA 4.0 with attribution to Wikipedia contributors.}
+}
+
+@article{martens2020natural,
+  author  = {James Martens},
+  title   = {New Insights and Perspectives on the Natural Gradient Method},
+  journal = {Journal of Machine Learning Research},
+  year    = {2020},
+  volume  = {21},
+  number  = {146},
+  pages   = {1--76},
+  url     = {http://jmlr.org/papers/v21/17-678.html}
+}
+
+@article{kirkpatrick2017ewc, title={Overcoming catastrophic forgetting in neural networks}, volume={114}, ISSN={1091-6490}, url={http://dx.doi.org/10.1073/pnas.1611835114}, DOI={10.1073/pnas.1611835114}, number={13}, journal={Proceedings of the National Academy of Sciences}, publisher={National Academy of Sciences}, author={Kirkpatrick, James and Pascanu, Razvan and Rabinowitz, Neil and Veness, Joel and Desjardins, Guillaume and Rusu, Andrei A. and Milan, Kieran and Quan, John and Ramalho, Tiago and Grabska-Barwinska, Agnieszka and Hassabis, Demis and Clopath, Claudia and Kumaran, Dharshan and Hadsell, Raia}, year={2017}, month=Mar, pages={3521–3526} }
+
+@inproceedings{saxe2014linear,
+ title={Exact solutions to the nonlinear dynamics of learning in deep linear neural networks},
+ author={Saxe, Andrew M. and McClelland, James L. and Ganguli, Surya},
+ booktitle={International Conference on Learning Representations}, year={2014},
+ url={https://arxiv.org/abs/1312.6120}}
+
+@InProceedings{xu2025loraflow,
+  title = 	 {Understanding the Learning Dynamics of LoRA: A Gradient Flow Perspective on Low-Rank Adaptation in Matrix Factorization},
+  author =       {Xu, Ziqing and Min, Hancheng and MacDonald, Lachlan Ewen and Luo, Jinqi and Tarmoun, Salma and Mallada, Enrique and Vidal, Rene},
+  booktitle = 	 {Proceedings of The 28th International Conference on Artificial Intelligence and Statistics},
+  pages = 	 {4636--4644},
+  year = 	 {2025},
+  editor = 	 {Li, Yingzhen and Mandt, Stephan and Agrawal, Shipra and Khan, Emtiyaz},
+  volume = 	 {258},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {03--05 May},
+  publisher =    {PMLR},
+  pdf = 	 {https://raw.githubusercontent.com/mlresearch/v258/main/assets/xu25h/xu25h.pdf},
+  url = 	 {https://proceedings.mlr.press/v258/xu25h.html},
+  abstract = 	 {Despite the empirical success of Low-Rank Adaptation (LoRA) in fine-tuning pre-trained models, there is little theoretical understanding of how first-order methods with carefully crafted initialization adapt models to new tasks. In this work, we take the first step towards bridging this gap by theoretically analyzing the learning dynamics of LoRA for matrix factorization (MF) under gradient flow (GF), emphasizing the crucial role of initialization. For small initialization, we theoretically show that GF converges to a neighborhood of the optimal solution, with smaller initialization leading to lower final error. Our analysis shows that the final error is affected by the misalignment between the singular spaces of the pre-trained model and the target matrix, and reducing the initialization scale improves alignment. To address this misalignment, we propose a spectral initialization for LoRA in MF and theoretically prove that GF with small spectral initialization converges to the fine-tuning task with arbitrary precision. Numerical experiments from MF and image classification validate our findings.}
+}
+
+@inproceedings{lingam2024svft,
+ author = {Lingam, Vijay and Tejaswi, Atula and Vavre, Aditya and Shetty, Aneesh and Gudur, Gautham Krishna and Ghosh, Joydeep and Dimakis, Alex and Choi, Eunsol and Bojchevski, Aleksandar and Sanghavi, Sujay},
+ booktitle = {Advances in Neural Information Processing Systems},
+ doi = {10.52202/079017-1311},
+ editor = {A. Globerson and L. Mackey and D. Belgrave and A. Fan and U. Paquet and J. Tomczak and C. Zhang},
+ pages = {41425--41446},
+ publisher = {Curran Associates, Inc.},
+ title = {{SVFT}: Parameter-Efficient Fine-Tuning with Singular Vectors},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2024/file/48c368f105e8145b945227b73255635a-Paper-Conference.pdf},
+ volume = {37},
+ year = {2024}
+}
+
+@inproceedings{shuttleworth2024illusion,
+ author = {Shuttleworth, Reece and Andreas, Jacob and Torralba, Antonio and Sharma, Pratyusha},
+ booktitle = {Advances in Neural Information Processing Systems},
+ doi = {10.52202/085713-5808},
+ editor = {D. Belgrave and C. Zhang and H. Lin and R. Pascanu and P. Koniusz and M. Ghassemi and N. Chen},
+ pages = {174627--174662},
+ publisher = {Curran Associates, Inc.},
+ title = {{LoRA} vs Full Fine-tuning: An Illusion of Equivalence},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2025/file/ff541950d1e885af90f523571564a401-Paper-Conference.pdf},
+ volume = {38, Main Conference},
+ year = {2025}
+}
+
+@misc{he2025posttrainingstructure,
+  doi = {10.48550/ARXIV.2509.17866},
+  url = {https://arxiv.org/abs/2509.17866},
+  author = {He, Xinyu and Cao, Xianghui},
+  keywords = {Machine Learning (cs.LG), Artificial Intelligence (cs.AI), FOS: Computer and information sciences, FOS: Computer and information sciences},
+  title = {Understanding Post-Training Structural Changes in Large Language Models},
+  publisher = {arXiv},
+  year = {2025},
+  copyright = {arXiv.org perpetual, non-exclusive license}
+}
+
+@inproceedings{wang2026casa,
+  title = {Exploring Data-Free {LoRA} Transferability for Video Diffusion Models},
+  author = {Wang, Yuchen and Zhong, Wenliang and Bai, Lichen and Zhou, Zikai and Shao, Shitong and Cheng, Bojun and Chen, Shuo and Yang, Shuo and Xie, Zeke},
+  booktitle = {International Conference on Machine Learning},
+  year = {2026},
+  url = {https://icml.cc/virtual/2026/poster/64894}
+}
+
+@inproceedings{qiu2025poet,
+ author = {Qiu, Zeju and Buchholz, Simon and Xiao, Tim and Dax, Maximilian and Sch\"{o}lkopf, Bernhard and Liu, Weiyang},
+ booktitle = {Advances in Neural Information Processing Systems},
+ doi = {10.52202/085713-4704},
+ editor = {D. Belgrave and C. Zhang and H. Lin and R. Pascanu and P. Koniusz and M. Ghassemi and N. Chen},
+ pages = {140775--140821},
+ publisher = {Curran Associates, Inc.},
+ title = {Reparameterized {LLM} Training via Orthogonal Equivalence Transformation},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2025/file/cde43c5d698076ae17f3838a80f5a1bc-Paper-Conference.pdf},
+ volume = {38, Main Conference},
+ year = {2025}
+}
+
+@inproceedings{meng2024pissa,
+ author = {Meng, Fanxu and Wang, Zhaohui and Zhang, Muhan},
+ booktitle = {Advances in Neural Information Processing Systems},
+ doi = {10.52202/079017-3846},
+ editor = {A. Globerson and L. Mackey and D. Belgrave and A. Fan and U. Paquet and J. Tomczak and C. Zhang},
+ pages = {121038--121072},
+ publisher = {Curran Associates, Inc.},
+ title = {{PiSSA}: Principal Singular Values and Singular Vectors Adaptation of Large Language Models},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2024/file/db36f4d603cc9e3a2a5e10b93e6428f2-Paper-Conference.pdf},
+ volume = {37},
+ year = {2024}
+}
+
+@techreport{stewart1990,
+  author = {G. W. Stewart},
+  title = {Perturbation Theory for the Singular Value Decomposition},
+  institution = {University of Maryland, Institute for Advanced Computer Studies},
+  number = {UMIACS-TR-90-124, CS-TR-2539},
+  year = {1990},
+  url = {https://api.drum.lib.umd.edu/server/api/core/bitstreams/a38cc6db-9bb7-4f3b-ae43-55b5827bb9d4/content}
+}
+
+@Article{wedin1972,
+author="Wedin, Per-{\AA}ke",
+title="Perturbation bounds in connection with singular value decomposition",
+journal="BIT Numerical Mathematics",
+year="1972",
+month="Mar",
+day="01",
+volume="12",
+number="1",
+pages="99--111",
+abstract="LetA be anm {\texttimes}n-matrix which is slightly perturbed. In this paper we will derive an estimate of how much the invariant subspaces ofAHA andAAHwill then be affected. These bounds have the sin ϑ theorem for Hermitian linear operators in Davis and Kahan [1] as a special case. They are applicable to computational solution of overdetermined systems of linear equations and especially cover the rank deficient case when the matrix is replaced by one of lower rank.",
+issn="1572-9125",
+doi="10.1007/BF01932678",
+url="https://doi.org/10.1007/BF01932678"
+}
+
+@article{marchenko1967, title={DISTRIBUTION OF EIGENVALUES FOR SOME SETS OF RANDOM MATRICES}, volume={1}, ISSN={0025-5734}, url={http://dx.doi.org/10.1070/SM1967v001n04ABEH001994}, DOI={10.1070/sm1967v001n04abeh001994}, number={4}, journal={Mathematics of the USSR-Sbornik}, publisher={Steklov Mathematical Institute}, author={Marčenko, V A and Pastur, L A}, year={1967}, month=Apr, pages={457–483} }
+
+@inproceedings{yuan2024hra,
+ author = {Yuan, Shen and Liu, Haotian and Xu, Hongteng},
+ booktitle = {Advances in Neural Information Processing Systems},
+ doi = {10.52202/079017-3606},
+ editor = {A. Globerson and L. Mackey and D. Belgrave and A. Fan and U. Paquet and J. Tomczak and C. Zhang},
+ pages = {113484--113518},
+ publisher = {Curran Associates, Inc.},
+ title = {Bridging The Gap between Low-rank and Orthogonal Adaptation via {Householder} Reflection Adaptation},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2024/file/cdd0640218a27e9e2c0e52e324e25db0-Paper-Conference.pdf},
+ volume = {37},
+ year = {2024}
+}
+
+@inproceedings{wang2025milora,
+    title = "{M}i{L}o{RA}: Harnessing Minor Singular Components for Parameter-Efficient {LLM} Finetuning",
+    author = "Wang, Hanqing  and
+      Li, Yixia  and
+      Wang, Shuo  and
+      Chen, Guanhua  and
+      Chen, Yun",
+    editor = "Chiruzzo, Luis  and
+      Ritter, Alan  and
+      Wang, Lu",
+    booktitle = "Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)",
+    month = apr,
+    year = "2025",
+    address = "Albuquerque, New Mexico",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.naacl-long.248/",
+    doi = "10.18653/v1/2025.naacl-long.248",
+    pages = "4823--4836",
+    ISBN = "979-8-89176-189-6"
+}
+
+
+@article{schulman2025lora,
+  author  = {Schulman, John and {Thinking Machines Lab}},
+  title   = {{LoRA} Without Regret},
+  journal = {Thinking Machines Lab: Connectionism},
+  year    = {2025},
+  month   = sep,
+  doi     = {10.64434/tml.20250929},
+  url     = {https://thinkingmachines.ai/blog/lora/}
+}
+
+@inproceedings{liu2023evalplus,
+ author = {Liu, Jiawei and Xia, Chunqiu Steven and Wang, Yuyao and ZHANG, LINGMING},
+ booktitle = {Advances in Neural Information Processing Systems},
+ doi = {10.52202/075280-0943},
+ editor = {A. Oh and T. Naumann and A. Globerson and K. Saenko and M. Hardt and S. Levine},
+ pages = {21558--21572},
+ publisher = {Curran Associates, Inc.},
+ title = {Is Your Code Generated by {ChatGPT} Really Correct? {Rigorous} Evaluation of Large Language Models for Code Generation},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2023/file/43e9d647ccd3e4b7b5baab53f0368686-Paper-Conference.pdf},
+ volume = {36},
+ year = {2023}
+}
+
+@inproceedings{zheng2024opencodeinterpreter,
+    title = "{O}pen{C}ode{I}nterpreter: Integrating Code Generation with Execution and Refinement",
+    author = "Zheng, Tianyu  and
+      Zhang, Ge  and
+      Shen, Tianhao  and
+      Liu, Xueling  and
+      Lin, Bill Yuchen  and
+      Fu, Jie  and
+      Chen, Wenhu  and
+      Yue, Xiang",
+    editor = "Ku, Lun-Wei  and
+      Martins, Andre  and
+      Srikumar, Vivek",
+    booktitle = "Findings of the Association for Computational Linguistics: ACL 2024",
+    month = aug,
+    year = "2024",
+    address = "Bangkok, Thailand",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.findings-acl.762/",
+    doi = "10.18653/v1/2024.findings-acl.762",
+    pages = "12834--12859"
+}
+
+@misc{lee2026learningrate,
+  title={Learning Rate Matters: Vanilla {LoRA} May Suffice for {LLM} Fine-tuning},
+  author={Yu-Ang Lee and Ching-Yun Ko and Pin-Yu Chen and Mi-Yen Yeh},
+  year={2026},
+  eprint={2602.04998},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2602.04998}
+}
+
+@misc{jin2026rlheals,
+      title={{RL} Fine-Tuning Heals {OOD} Forgetting in {SFT}},
+      author={Hangzhan Jin and Sitao Luan and Tianwei Ni and Sicheng Lyu and Guillaume Rabusseau and Reihaneh Rabbany and Doina Precup and Mohammad Hamdaqa},
+      year={2026},
+      eprint={2509.12235},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2509.12235},
+}
+@InProceedings{bini2024ether,
+  title = {{ETHER}: Efficient Finetuning of Large-Scale Models with Hyperplane Reflections},
+  author = {Bini, Massimo and Roth, Karsten and Akata, Zeynep and Khoreva, Anna},
+  booktitle = {Proceedings of the 41st International Conference on Machine Learning},
+  pages = {4007--4026},
+  year = {2024},
+  editor = {Salakhutdinov, Ruslan and Kolter, Zico and Heller, Katherine and Weller, Adrian and Oliver, Nuria and Scarlett, Jonathan and Berkenkamp, Felix},
+  volume = {235},
+  series = {Proceedings of Machine Learning Research},
+  month = {21--27 Jul},
+  publisher = {PMLR},
+  pdf = {https://raw.githubusercontent.com/mlresearch/v235/main/assets/bini24a/bini24a.pdf},
+  url = {https://proceedings.mlr.press/v235/bini24a.html}
+}
+
+@InProceedings{zhang2025loraone,
+  title = 	 {{L}o{RA}-{One}: One-Step Full Gradient Could Suffice for Fine-Tuning Large Language Models, Provably and Efficiently},
+  author =       {Zhang, Yuanhe and Liu, Fanghui and Chen, Yudong},
+  booktitle = 	 {Proceedings of the 42nd International Conference on Machine Learning},
+  pages = 	 {75513--75574},
+  year = 	 {2025},
+  editor = 	 {Singh, Aarti and Fazel, Maryam and Hsu, Daniel and Lacoste-Julien, Simon and Berkenkamp, Felix and Maharaj, Tegan and Wagstaff, Kiri and Zhu, Jerry},
+  volume = 	 {267},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {13--19 Jul},
+  publisher =    {PMLR},
+  pdf = 	 {https://raw.githubusercontent.com/mlresearch/v267/main/assets/zhang25ax/zhang25ax.pdf},
+  url = 	 {https://proceedings.mlr.press/v267/zhang25ax.html},
+  abstract = 	 {This paper explores how theory can guide and enhance practical algorithms, using Low-Rank Adaptation (LoRA) (Hu et al., 2022) in large language models as a case study. We rigorously prove that, under gradient descent, LoRA adapters align with specific singular subspaces of the one-step full fine-tuning gradient. This result suggests that, by properly initializing the adapters using the one-step full gradient, subspace alignment can be achieved immediately—applicable to both linear and nonlinear models. Building on our theory, we propose a theory-driven algorithm, LoRA-One, where the linear convergence (as well as generalization) is built and incorporating preconditioners theoretically helps mitigate the effects of ill-conditioning. Besides, our theory reveals connections between LoRA-One and other gradient-alignment-based methods, helping to clarify misconceptions in the design of such algorithms. LoRA-One achieves significant empirical improvements over LoRA and its variants across benchmarks in natural language understanding, mathematical reasoning, and code generation. Code is available at: https://github.com/YuanheZ/LoRA-One.}
+}
+
+@inproceedings{wang2025lorapro,
+ author = {Wang, Zhengbo and Liang, Jian and He, Ran and Wang, Zilei and Tan, Tieniu},
+ booktitle = {International Conference on Learning Representations},
+ editor = {Y. Yue and A. Garg and N. Peng and F. Sha and R. Yu},
+ pages = {93787--93808},
+ title = {LoRA-Pro: Are Low-Rank Adapters Properly Optimized?},
+ url = {https://proceedings.iclr.cc/paper_files/paper/2025/file/ea184f920a0f0f8d8030aa1bd7ac9fd4-Paper-Conference.pdf},
+ volume = {2025},
+ year = {2025}
+}
+
+@article{ponkshe2024lorasb,
+  title={Initialization using update approximation is a silver bullet for extremely efficient low-rank fine-tuning},
+  author={Ponkshe, Kaustubh and Singhal, Raghav and Gorbunov, Eduard and Tumanov, Alexey and Horvath, Samuel and Vepakomma, Praneeth},
+  journal={arXiv preprint arXiv:2411.19557},
+  year={2024}
+}
+
+@article{schreiber1989wy, title={A Storage-Efficient {$WY$} Representation for Products of {Householder} Transformations}, volume={10}, ISSN={2168-3417}, url={http://dx.doi.org/10.1137/0910005}, DOI={10.1137/0910005}, number={1}, journal={SIAM Journal on Scientific and Statistical Computing}, publisher={Society for Industrial & Applied Mathematics (SIAM)}, author={Schreiber, Robert and Van Loan, Charles}, year={1989}, month=Jan, pages={53–57} }
+
+@article{mirsky1975trace, title={A trace inequality of {John von Neumann}}, volume={79}, ISSN={1436-5081}, url={http://dx.doi.org/10.1007/BF01647331}, DOI={10.1007/bf01647331}, number={4}, journal={Monatshefte für Mathematik}, publisher={Springer Science and Business Media LLC}, author={Mirsky, L.}, year={1975}, month=Dec, pages={303–306} }
+
+@article{higham1986polar, title={Computing the Polar Decomposition—with Applications}, volume={7}, ISSN={2168-3417}, url={http://dx.doi.org/10.1137/0907079}, DOI={10.1137/0907079}, number={4}, journal={SIAM Journal on Scientific and Statistical Computing}, publisher={Society for Industrial & Applied Mathematics (SIAM)}, author={Higham, Nicholas J.}, year={1986}, month=Oct, pages={1160–1174} }
+
+@inproceedings{liu2018mhe,
+ author = {Liu, Weiyang and Lin, Rongmei and Liu, Zhen and Liu, Lixin and Yu, Zhiding and Dai, Bo and Song, Le},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {S. Bengio and H. Wallach and H. Larochelle and K. Grauman and N. Cesa-Bianchi and R. Garnett},
+ pages = {},
+ publisher = {Curran Associates, Inc.},
+ title = {Learning towards Minimum Hyperspherical Energy},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2018/file/177540c7bcb8db31697b601642eac8d4-Paper.pdf},
+ volume = {31},
+ year = {2018}
+}
+
+@InProceedings{likhosherstov2021cwy,
+  title = 	 { {CWY} Parametrization: a Solution for Parallelized Optimization of Orthogonal and {Stiefel} Matrices },
+  author =       {Likhosherstov, Valerii and Davis, Jared and Choromanski, Krzysztof and Weller, Adrian},
+  booktitle = 	 {Proceedings of The 24th International Conference on Artificial Intelligence and Statistics},
+  pages = 	 {55--63},
+  year = 	 {2021},
+  editor = 	 {Banerjee, Arindam and Fukumizu, Kenji},
+  volume = 	 {130},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {13--15 Apr},
+  publisher =    {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v130/likhosherstov21a/likhosherstov21a.pdf},
+  url = 	 {https://proceedings.mlr.press/v130/likhosherstov21a.html},
+  abstract = 	 { We introduce an efficient approach for optimization over orthogonal groups on highly parallel computation units such as GPUs or TPUs. As in earlier work, we parametrize an orthogonal matrix as a product of Householder reflections. However, to overcome low parallelization capabilities of computing Householder reflections sequentially, we propose employing an accumulation scheme called the compact WY (or CWY) transform – a compact parallelization-friendly matrix representation for the series of Householder reflections. We further develop a novel Truncated CWY (or T-CWY) approach for Stiefel manifold parametrization which has a competitive complexity and, again, yields benefits when computed on GPUs and TPUs. We prove that our CWY and T-CWY methods lead to convergence to a stationary point of the training objective when coupled with stochastic gradient descent. We apply our methods to train recurrent neural network architectures in the tasks of neural machine translation and video prediction. }
+}
+
+@misc{dubey2024llama3,
+      title={The {Llama 3} Herd of Models}, 
+      author={Aaron Grattafiori and Abhimanyu Dubey and Abhinav Jauhri and Abhinav Pandey and Abhishek Kadian and Ahmad Al-Dahle and Aiesha Letman and Akhil Mathur and Alan Schelten and Alex Vaughan and others},
+      year={2024},
+      eprint={2407.21783},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2407.21783}, 
+}
+
+@misc{cobbe2021gsm8k,
+  title = {Training Verifiers to Solve Math Word Problems},
+  author = {Cobbe, Karl and Kosaraju, Vineet and Bavarian, Mohammad and Chen, Mark and Jun, Heewoo and Kaiser, Lukasz and Plappert, Matthias and Tworek, Jerry and Hilton, Jacob and Nakano, Reiichiro and Hesse, Christopher and Schulman, John},
+  year = {2021},
+  eprint = {2110.14168},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.LG},
+  url = {https://arxiv.org/abs/2110.14168}
+}
+
+@misc{chen2021humaneval,
+  title = {Evaluating Large Language Models Trained on Code},
+  author = {Chen, Mark and Tworek, Jerry and Jun, Heewoo and Yuan, Qiming and Pinto, Henrique Ponde de Oliveira and Kaplan, Jared and Edwards, Harri and Burda, Yuri and Joseph, Nicholas and Brockman, Greg and others},
+  year = {2021},
+  eprint = {2107.03374},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.LG},
+  url = {https://arxiv.org/abs/2107.03374}
+}
+
+@misc{austin2021mbpp,
+  title = {Program Synthesis with Large Language Models},
+  author = {Austin, Jacob and Odena, Augustus and Nye, Maxwell and Bosma, Maarten and Michalewski, Henryk and Dohan, David and Jiang, Ellen and Cai, Carrie and Terry, Michael and Le, Quoc and Sutton, Charles},
+  year = {2021},
+  eprint = {2108.07732},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.PL},
+  url = {https://arxiv.org/abs/2108.07732}
+}
+
+@inproceedings{loshchilov2019adamw,
+  title = {Decoupled Weight Decay Regularization},
+  author = {Loshchilov, Ilya and Hutter, Frank},
+  booktitle = {International Conference on Learning Representations},
+  year = {2019},
+  url = {https://openreview.net/forum?id=Bkg6RiCqY7}
+}
+
+@inproceedings{liu2023rectifiedflow,
+  title = {Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow},
+  author = {Liu, Xingchao and Gong, Chengyue and Liu, Qiang},
+  booktitle = {International Conference on Learning Representations},
+  year = {2023},
+  url = {https://openreview.net/forum?id=XVjTT1nw5z}
+}
+
+@InProceedings{houlsby2019adapters,
+  title = 	 {Parameter-Efficient Transfer Learning for {NLP}},
+  author =       {Houlsby, Neil and Giurgiu, Andrei and Jastrzebski, Stanislaw and Morrone, Bruna and De Laroussilhe, Quentin and Gesmundo, Andrea and Attariyan, Mona and Gelly, Sylvain},
+  booktitle = 	 {Proceedings of the 36th International Conference on Machine Learning},
+  pages = 	 {2790--2799},
+  year = 	 {2019},
+  editor = 	 {Chaudhuri, Kamalika and Salakhutdinov, Ruslan},
+  volume = 	 {97},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {09--15 Jun},
+  publisher =    {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v97/houlsby19a/houlsby19a.pdf},
+  url = 	 {https://proceedings.mlr.press/v97/houlsby19a.html},
+  abstract = 	 {Fine-tuning large pretrained models is an effective transfer mechanism in NLP. However, in the presence of many downstream tasks, fine-tuning is parameter inefficient: an entire new model is required for every task. As an alternative, we propose transfer with adapter modules. Adapter modules yield a compact and extensible model; they add only a few trainable parameters per task, and new tasks can be added without revisiting previous ones. The parameters of the original network remain fixed, yielding a high degree of parameter sharing. To demonstrate adapter’s effectiveness, we transfer the recently proposed BERT Transformer model to $26$ diverse text classification tasks, including the GLUE benchmark. Adapters attain near state-of-the-art performance, whilst adding only a few parameters per task. On GLUE, we attain within $0.8%$ of the performance of full fine-tuning, adding only $3.6%$ parameters per task. By contrast, fine-tuning trains $100%$ of the parameters per task.}
+}
+
+@inproceedings{li2021prefix,
+    title = "Prefix-Tuning: Optimizing Continuous Prompts for Generation",
+    author = "Li, Xiang Lisa  and
+      Liang, Percy",
+    editor = "Zong, Chengqing  and
+      Xia, Fei  and
+      Li, Wenjie  and
+      Navigli, Roberto",
+    booktitle = "Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)",
+    month = aug,
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.acl-long.353/",
+    doi = "10.18653/v1/2021.acl-long.353",
+    pages = "4582--4597"
+}
+
+
+@Misc{mangrulkar2022peft,
+  title =        {{PEFT}: State-of-the-art Parameter-Efficient Fine-Tuning methods},
+  author =       {Sourab Mangrulkar and Sylvain Gugger and Lysandre Debut and Younes Belkada and Sayak Paul and Benjamin Bossan and Marian Tietz},
+  howpublished = {\url{https://github.com/huggingface/peft}},
+  year =         {2022}
+}
+
+@misc{liang2026dataflexrlevaluationplatformrlvr,
+  title={{DataFlex-RL}: An Evaluation Platform for {RLVR} Data Policies},
+  author={Hao Liang and Mingrui Chen and Hengyi Feng and Meiyi Qiang and Wentao Zhang},
+  year={2026},
+  eprint={2609.06107},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2609.06107}
+}

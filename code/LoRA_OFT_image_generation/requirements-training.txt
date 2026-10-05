@@ -1,0 +1,7 @@
+# Install a compatible CUDA-enabled PyTorch build first.
+-r requirements.txt
+accelerate
+huggingface-hub
+peft==0.20.0
+safetensors
+transformers

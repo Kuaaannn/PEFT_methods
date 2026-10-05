@@ -1,0 +1,18 @@
+{
+  "source_plan": "../../code/LoRA-OFT/experiments/checkpoint_protocol/interventions.json",
+  "source_plan_sha256": "7c22701a4dc5252be2dc36ac818dbb27ab6bdc1162ecd92546353021c16d3689",
+  "source_cell_ids": [
+    1,
+    3,
+    4,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ]
+}

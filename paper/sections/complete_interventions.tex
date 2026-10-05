@@ -1,0 +1,85 @@
+\section{Geometric measurements and language spectral interventions}\label{app:complete-interventions}
+\FloatBarrier
+\subsection{Checkpoints, controls and reference models}
+The intervention study covers 108 checkpoints selected by mean development accuracy within each model/method/capacity, with 22 interventions or controls per checkpoint. Llama HRA uses the extended-grid selections in Appendix~\ref{app:hra-extension}. All edits use the same GSM8K development and general-text banks. The tables below extend the largest-capacity main figures to all capacities and selected LRs.
+
+Task and NLL changes use the trained model as reference. Value-restoration controls compare against reconstruction, while component sufficiency and factorial analyses use full value restoration. Forgetting recovery is the fraction of the trained model's NLL increase recovered by an edit, computed within each checkpoint before seed averaging.
+
+Edits jointly cover all adapted matrices. SVD computations use FP32, followed by BF16 storage and evaluation. The dominant, intermediate and trailing component groups divide the pretrained spectrum into approximate thirds, with boundaries adjusted to nearby spectral gaps. Plots label these groups top, middle and tail.
+
+For the collection $\mathcal M$ of adapted matrices, the normalized displacements are
+\begin{equation*}
+ d_W^2=\frac{\sum_{M\in\mathcal M}\left\|\bm W_{*,M}-\bm W_{0,M}\right\|_{\mathrm F}^2}{\sum_{M\in\mathcal M}\left\|\bm W_{0,M}\right\|_{\mathrm F}^2},\qquad
+ d_S^2=\frac{\sum_{M\in\mathcal M}\left\|\bm s_{*,M}-\bm s_{0,M}\right\|_2^2}{\sum_{M\in\mathcal M}\left\|\bm s_{0,M}\right\|_2^2}.
+\end{equation*}
+
+Each checkpoint pools all 196 Qwen or 224 Llama adapted matrices (80 for the FLUX results in Appendix~\ref{app:flux22}), weighting their contributions through the squared norms.
+
+\input{generated/peft_complete_tables.tex}
+
+\FloatBarrier
+\Needspace{8\baselineskip}
+\subsection{Singular-value displacement and restoration}
+At largest capacity, PiSSA concentrates over 99\% of squared singular-value displacement in dominant components on all three models. MiLoRA concentrates about 99\% on Qwen/FLUX and 95\% on Llama in trailing components. These profiles follow their initialization choices, while restoration measures how much the spectral changes contribute to task performance.
+
+Across all 108 checkpoints, singular-value restoration changes general NLL by $-0.00535$ to $+0.01365$ relative to reconstruction, alongside a maximum absolute task-accuracy change of 1.3 percentage points. These small task effects extend the restoration finding across language capacities. 
+
+\paragraph{A high-LR LoRA outlier.}
+Qwen LoRA r7 selects the highest tested LR, $10^{-3}$. Its spectral displacement is $\result{spectrum_qwen_r7_dS_percent}\%$ of the base norm and $\result{spectrum_qwen_r7_ratio}\%$ of the weight update, exceeding the ratios in the low-drift settings. Restoration still largely preserves task performance, with a mean accuracy change of $+\result{rev_qwen_lora_7_restore_accuracy_vs_reconstruct_mean}$ pp relative to reconstruction (\Cref{tab:peft-restoration-qwen}). The restoration finding therefore also holds in this larger-ratio setting.
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth,height=.72\textheight,keepaspectratio]{figures/peft_app_03_value_restoration_controls.pdf}
+\caption{Singular-value restoration across capacities and seeds. Trained, reconstructed and restored models are shown separately, extending the main accuracy comparison with reconstruction controls and retention measurements.}
+\label{fig:complete-values}
+\end{figure}
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth,height=.72\textheight,keepaspectratio]{figures/peft_app_07_spectral_displacement.pdf}
+\caption{Measured weight and singular-value displacement across all six methods and both models at each selected capacity and LR. Ratios express spectral displacement relative to weight displacement.}
+\end{figure}
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth,height=.72\textheight,keepaspectratio]{figures/peft_app_08_bandwise_singular_values.pdf}
+\caption{Singular-value changes across spectral components at largest capacity. PiSSA's displacement concentrates near the leading end, whereas MiLoRA's concentrates near the tail, consistent with their initialization choices. The pretrained reference and method colors are retained.}
+\end{figure}
+
+
+
+\Needspace{20\baselineskip}
+\input{sections/hyperspherical}
+
+\subsection{Component effects, interactions and task performance}
+Restoring dominant components lowers general-text NLL at every capacity and gives the largest reduction among the three groups in 106/108 checkpoints. The exceptions to the largest reduction are Qwen DoRA r14/seed 73 and MiLoRA r28/seed 13. Dominant restoration remains strongest in every configuration mean, supporting the consistent forgetting response across language capacities.
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth,height=.76\textheight,keepaspectratio]{figures/peft_app_02_all_configuration_top_resets.pdf}
+\caption{Dominant-component restoration at every selected configuration and seed. The retention response persists across the grid, while task-accuracy responses vary. Recovery is normalized by each checkpoint's trained-model NLL increase.}
+\end{figure}
+
+For a set $A$ of adapted component groups, define
+\begin{equation*}
+\bm W(A)=\sum_{B\in A}\sum_{i\in B}s_{0,i}\bm u_{*,i}\bm v_{*,i}^{\!\top}
++\sum_{B\notin A}\sum_{i\in B}s_{0,i}\bm u_{0,i}\bm v_{0,i}^{\!\top}.
+\end{equation*}
+Its endpoints are the pretrained-component reconstruction and the full value-restored model. For general NLL $f(A)$, the effect of adapting group $B$ is $f(A\cup\{B\})-f(A)$. We evaluate it under all four combinations of pretrained or adapted components in the other groups. Adapting dominant components increases NLL in every combination across all 108 checkpoints. Intermediate and trailing effects change sign across combinations in 38 and 42 checkpoints, using a $10^{-4}$ tolerance. Thus, the dominant-component forgetting response persists as the other components change.
+
+All 36 configurations include evaluations of every component combination for all three seeds.
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth,height=.75\textheight,keepaspectratio]{figures/peft_app_04_conditional_band_effects.pdf}
+\caption{Effects of adapting each component group under all combinations of the other groups. Dominant-component adaptation consistently increases general NLL, while intermediate and trailing effects can change sign. Both NLL evaluations agree on the dominant-component direction.}
+\end{figure}
+\begin{figure}[t]\centering
+\includegraphics[width=\linewidth]{figures/peft_keep_reset.pdf}
+\caption{Task performance when retaining only some adapted components. Cells show mean $\pm$ SD changes from $\bm W_R$ (all singular values restored) at the largest capacities. Columns retain the adapted dominant components alone or the intermediate and trailing components together. Bold means mark losses exceeding 1 pp for LLMs or 1 DINO$\times100$ unit for FLUX.}
+\label{fig:component-sufficiency}
+\end{figure}
+
+\paragraph{Task performance across selected capacities.}
+\Cref{tab:capacity-sufficiency} extends the largest-capacity comparison in \Cref{fig:component-sufficiency}. Qwen LoRA retains task performance with dominant components alone at small capacity, with neither component set alone at medium capacity, and with either set alone at large capacity. Llama LoRA's outcomes also vary across capacities and seeds. PiSSA retains the dominant-only pattern at every language capacity, supporting its consistent concentration of task gains in dominant components. The other methods illustrate the setting-dependent component contributions described in the main text, alongside the consistent forgetting response.
+\input{generated/capacity_sufficiency.tex}
+
+\FloatBarrier
+\input{sections/band_norm_controls}
+
+\FloatBarrier
+\subsection{Native OFT orthogonality and polar projection}\label{app:native-orthogonality}
+OFTv2 approximates the Cayley inverse with a truncated Neumann series \citep{qiu2025oftv2}. We measure $\|\bm R\bm R^{\!\top}-\bm I\|_{\mathrm{F}}$, its maximum absolute entry, and $\|\bm R-\widehat{\bm R}\|_{\mathrm{F}}/\|\bm R\|_{\mathrm{F}}$, where $\widehat{\bm R}$ is the polar factor \citep{higham1986polar}. The relative distance expresses the deviation from orthogonality on a scale normalized by the transform norm. These diagnostics cover 21 checkpoints each for Qwen and Llama, and 33 for FLUX. The maximum native-to-polar distances are about 0.154\%, 0.094\% and 11.0\%, respectively (\Cref{tab:peft-orthogonality}). Task and retention evaluations use native transforms. Polar projection measures their deviation from an exact orthogonal transform, clarifying the numerical precision of the geometric-preservation comparison.
+
+\input{generated/peft_orthogonality.tex}

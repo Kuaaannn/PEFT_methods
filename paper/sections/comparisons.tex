@@ -1,0 +1,38 @@
+\section{Competitive performance, recurring retention differences}\label{sec:comparisons}
+
+In this section, we study task performance and forgetting across PEFT methods and ask whether closer geometric preservation leads to better adaptation--retention trade-offs. We also examine method-specific patterns across settings. 
+
+\subsection{Language models: competitive performance, different retention}
+We first examine whether comparable task performance in mathematics and coding is accompanied by comparable retention of general language modeling. We consider both development-selected test results and the mathematics performance--retention frontiers across learning rates and capacities.
+
+\input{generated/math_coding_main.tex}
+
+\textbf{LoRA most consistently limits forgetting among all six methods.} Its mean NLL increase is lowest in \result{cross_lora_math_lowest} of 6 mathematics settings and both coding backbones (\Cref{tab:math-test}), while task performance remains competitive across settings. See Appendix~\ref{app:retention-patterns} for robustness checks. OFT forgets least for Llama at the largest capacity, with LoRA second. For Qwen at the smallest capacity, LoRA's high-LR selection forgets most and MiLoRA least.
+
+\textbf{DoRA usually exceeds LoRA's mean task scores.} It leads in 10/14 comparisons: all four coding comparisons, all four cat budgets, and two mathematics settings (small Qwen and large Llama; \Cref{tab:math-test}, Appendix~\ref{app:retention-patterns}). DoRA's forgetting ranks among the lowest three methods in every selected LLM setting.
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth]{figures/peft_pareto.pdf}
+\caption{Development performance--retention envelopes across LRs and capacities. Shapes denote increasing capacity: circle, square, triangle, then diamond (FLUX only). Faint points are dominated within their method. Line styles identify method frontiers. Black borders mark the shared frontier across methods. Each icon counts one configuration in the full grid (89 Qwen, 90 Llama, 192 FLUX). Insets magnify boxed regions with uniform point styling. (a,b) Dev accuracy versus FineWiki $\Delta$NLL. (c) Cat validation DINO versus general-image drift.}
+\label{fig:operating-envelopes}
+\end{figure}
+
+\textbf{PiSSA frequently incurs greater retention costs.} It has the largest mean NLL increase on both coding backbones and half the mathematics settings, yet leads Llama HumanEval+. At matched LRs and capacities, PiSSA forgets most in every complete LLM comparison and constituent seed (further comparisons in Appendix~\ref{app:retention-patterns}).
+
+PiSSA also illustrates why closer geometric preservation need not improve retention. At the largest Llama capacity, it has smaller HE and pairwise-cosine changes than LoRA (Appendix~\ref{app:hyperspherical}) but a greater NLL increase in every seed (means $\result{he_llama_pissa_forgetting}$ versus $\result{he_llama_lora_forgetting}$).
+
+On the development frontiers, LoRA and DoRA also appear repeatedly, with DoRA reaching the highest accuracy on both backbones (\Cref{fig:operating-envelopes}a,b). OFT contributes many Llama frontier points, whereas PiSSA contributes none.
+
+\subsection{Diffusion: recurring drift patterns, distinct retention metrics}
+We next examine whether the retention patterns observed in language extend to diffusion personalization. We compare all six methods on cat personalization across parameter budgets, then extend the LoRA--OFT comparison across objects using complementary measures of retention.
+
+\input{generated/hf_diffusion_main.tex}
+
+\textbf{The retention pattern recurs across cat budgets.} LoRA has the lowest mean general drift at \result{cross_cat_lora_lowest} of \result{cross_cat_selected_settings} validation-selected budgets and the second lowest at the other (\Cref{tab:diffusion}a). DoRA has higher mean test DINO than LoRA at every budget, with additional drift, and leads fidelity at the smallest and largest budgets. PiSSA exceeds LoRA's drift in all \result{cross_cat_pissa_above_lora_seeds} paired seeds; its medium-budget fidelity lead again accompanies a retention cost.
+
+HRA has the highest mean test fidelity and lowest drift at the small budget and extends the pooled frontier, but its advantage does not persist at larger capacities. LoRA and DoRA also contribute; PiSSA contributes no frontier point (\Cref{fig:operating-envelopes}c). MiLoRA has lower mean fidelity and higher drift than LoRA at every selected budget.
+
+Across 28 objects, LoRA and OFT have close test fidelity. LoRA has lower image drift and higher CLIP alignment at all four selected capacity pairs, while OFT has lower COCO flow loss at three (\Cref{tab:diffusion}b). These metrics distinguish preservation of generated behavior from preservation of denoising predictions at fixed noisy states.
+
+\paragraph{Summary.}
+Although task scores are often close, LoRA most consistently limits forgetting among all six methods at competitive performance. DoRA usually exceeds LoRA's mean task scores, while PiSSA often forgets more. Other methods' performance and forgetting depend on the setting. The orthogonal methods OFT and HRA offer no consistent performance--retention advantage over the four LoRA-family methods across the tested settings.

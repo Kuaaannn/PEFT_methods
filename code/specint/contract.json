@@ -1,0 +1,130 @@
+{
+  "contract_version": "1.2.0",
+  "protocol": "PROTOCOL.md",
+  "_comment": "Names and defaults only. PROTOCOL.md fixes the meaning of every equation referenced here. Section tags (P3, P5, ...) point at the protocol section that defines the entry.",
+
+  "numerics": {
+    "P": "P3, P6",
+    "factor_dtype": "float32",
+    "reduction_dtype": "float64",
+    "singular_value_order": "descending",
+    "svd_solver": "gesvd",
+    "svd_solver_fallback": ["gesvdj"],
+    "svd_solver_policy": "torch.linalg.svd(driver='gesvd') on CUDA; the divide-and-conquer default gesvdj has ~8e-4 relative reconstruction error on this backbone, comparable to the bf16 storage floor, and is recorded as a fallback only with an explicit status flag.",
+    "spectra_paired_by": "sorted_endpoint_index",
+    "resort_edited_coefficients": false,
+    "matching_tolerance_rel": 0.01,
+    "rng_key_derivation": "blake2b digest of explicit string ids; python hash() is forbidden"
+  },
+
+  "operators": {
+    "P": "P3",
+    "base":              {"params": {},                    "family": "reference"},
+    "trained":           {"params": {},                    "family": "reference"},
+    "reconstruct":       {"params": {},                    "family": "reference"},
+    "restore":           {"params": {},                    "family": "restoration"},
+    "match_base":        {"params": {},                    "family": "norm_control"},
+    "match_edit_plus":   {"params": {},                    "family": "norm_control"},
+    "match_edit_minus":  {"params": {},                    "family": "norm_control"},
+    "rotation_band_preserve": {"params": {"band": ["top", "mid", "bottom"]},
+                                 "family": "causal_decomposition", "reference": "restore",
+                                 "construction": "W0 + selected learned-minus-base orientation contribution",
+                                 "partition": "same fixed-base gap-adjusted bands as rotation_band_restore"},
+    "rotation_topk_only": {"params": {"k": [1, 4, 32, 128, 512]},
+                            "family": "causal_decomposition", "reference": "restore",
+                            "construction": "W0 + first-k learned-minus-base orientation contributions",
+                            "k_policy": "positive integer; effective_k=min(k,min(matrix_shape)); explicitly recorded"},
+    "rotation_topk_restore": {"params": {"k": [1, 4, 32, 128, 512]},
+                               "family": "causal_decomposition", "reference": "restore",
+                               "construction": "W_R - first-k learned-minus-base orientation contributions",
+                               "k_policy": "positive integer; effective_k=min(k,min(matrix_shape)); explicitly recorded"},
+    "spectrum_only":     {"params": {},                    "family": "causal_decomposition"},
+    "left_orientation_only":  {"params": {"gap_rtol": 0.0001}, "family": "causal_decomposition"},
+    "right_orientation_only": {"params": {"gap_rtol": 0.0001}, "family": "causal_decomposition"},
+    "rotation_band_restore":  {"params": {"band": ["top", "mid", "bottom"]},
+                                 "family": "causal_decomposition",
+                                 "reference": "restore",
+                                 "partition": "three broad bands with boundaries pinned to nearby fixed-base spectral gaps"},
+    "update_scale":      {"params": {"q": [0.25, 0.5, 0.75, 1.0]},               "family": "magnitude"},
+    "spectral_path":     {"params": {"lam": [-1.0, 0.0, 0.5, 1.0, 2.0]},         "family": "path",
+                          "endpoints": {"0": "trained", "1": "restored"}},
+    "spectral_sign":     {"params": {"t": [1.0, 4.0, 16.0], "z": "restore_signs|random", "n_random": 5, "antithetic": true},
+                          "family": "sign"},
+    "relative_sign":     {"params": {"sigma": [0.001, 0.003, 0.01, 0.03], "z": ["ones", "neg_ones", "random", "neg_random"], "n_random": 5},
+                          "family": "sign"},
+    "spectral_shape":    {"params": {"sigma": [0.001, 0.003, 0.01, 0.03]},       "family": "shape",
+                          "compare_with": "global_gain_at_same_realized_edit_size"},
+    "global_gain":       {"params": {"g": "solved_to_match_shape_edit_size"},    "family": "shape"},
+    "spectral_band":     {"params": {"band": ["top", "mid", "bottom"], "coherent": [true, false], "d": "requested_edit_norm"},
+                          "family": "band",
+                          "partition": "numpy.array_split(arange(k), 3)",
+                          "equal_edit_energy_across_bands": true}
+  },
+
+  "geometry_fields": {
+    "P": "P5",
+    "b_m":  "||W - W_0||_F / ||W_0||_F",
+    "e_m":  "||W - W_star||_F / ||W_0||_F",
+    "s_m":  "||svdvals(W) - s_0||_2 / ||s_0||_2",
+    "er_norm_fraction":   "||E_R||_F / ||Delta||_F",
+    "er_energy_fraction": "(||E_R||_F / ||Delta||_F)^2",
+    "aggregation": "sqrt(sum_m numerator_energy_m / sum_m denominator_energy_m)",
+    "aggregation_forbidden": "mean of per-matrix normalized ratios",
+    "zero_denominator": "null with reason, never 0 or inf"
+  },
+
+  "metrics": {
+    "P": "P4",
+    "diffusion": {
+      "target_outcome":   ["test_dino_similarity", "dino_gain_over_subject_base", "target_prompt_clip"],
+      "target_loss":      ["target_flow_loss"],
+      "retention_outcome":["general_prompt_clip", "paired_dino_image_drift", "class_prompt_drift", "identity_leakage"],
+      "retention_loss":   ["general_flow_loss", "general_flow_loss_by_bucket"],
+      "predictive_drift": ["velocity_mse_vs_base", "velocity_mse_vs_trained"]
+    },
+    "llm": {
+      "target_outcome":   ["task_accuracy"],
+      "target_loss":      ["answer_token_nll"],
+      "retention_outcome":["general_suite_scores"],
+      "retention_loss":   ["general_text_nll"],
+      "predictive_drift": ["token_kl_vs_base", "token_kl_vs_trained"]
+    },
+    "reference_choices": ["base", "trained"],
+    "forgetting_sign": {
+      "losses": "F = M(W) - M(W_0)",
+      "higher_is_better": "F = M(W_0) - M(W)"
+    }
+  },
+
+  "banks": {
+    "P": "P2, P4",
+    "roles": ["selection", "target_eval", "general_eval"],
+    "hash_fields": ["prompt_list", "image_list", "cached_input_digest", "inference_settings"],
+    "diffusion_timestep_buckets": [0.125, 0.375, 0.625, 0.875],
+    "bucket_note": "fractions of scheduler index range; store realized indices/times/sigmas",
+    "noise_seeds_distinct_from_training_seeds": true
+  },
+
+  "status_values": {
+    "P": "P6, P7",
+    "ok": "measured and within tolerance",
+    "unresolved": "requested change below the measured reconstruction floor",
+    "unmatched": "norm control exceeded matching_tolerance_rel",
+    "infeasible": "operator could not be built (e.g. negative spectral coefficients, zero-energy band)",
+    "failed": "evaluation raised; metrics null with reason",
+    "fallback_solver": "measured with a non-default SVD driver"
+  },
+
+  "record_required_fields": {
+    "P": "P6, P7",
+    "identity": ["record_id", "contract_version", "library_version", "library_hash"],
+    "provenance": ["checkpoint_id", "checkpoint_hash", "module_manifest_hash", "operator_id", "operator_params", "rng_key", "dtype_profile", "bank_hash"],
+    "measurement": ["metrics", "geometry", "status", "status_reason"],
+    "cost": ["wall_seconds", "peak_allocated_bytes", "peak_reserved_bytes", "hardware"]
+  },
+
+  "tables": {
+    "P": "P7",
+    "required": ["manifest", "matrix_geometry", "per_prompt_metrics", "aggregate"]
+  }
+}

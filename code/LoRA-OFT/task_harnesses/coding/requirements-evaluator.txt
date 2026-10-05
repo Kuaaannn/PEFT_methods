@@ -1,0 +1,15 @@
+# Only imports used by the pinned EvalPlus file-based evaluator, no model/API backends.
+# No PyTorch, Transformers, CUDA, API credentials, or training environment in container.
+wget==3.2
+tempdir==0.7.1
+multipledispatch==1.0.0
+appdirs==1.4.4
+termcolor==3.1.0
+fire==0.7.1
+tree-sitter==0.25.2
+tree-sitter-python==0.25.0
+numpy==2.5.2
+tqdm==4.70.0
+rich==15.0.0
+psutil==7.2.2
+datasets==5.0.1

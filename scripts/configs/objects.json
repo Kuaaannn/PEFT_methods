@@ -1,0 +1,1972 @@
+{
+  "dataset_repository": "google/dreambooth",
+  "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6",
+  "prior_seed": 0,
+  "prior_shared_lr": 5e-05,
+  "schema_version": 1,
+  "study_id": "flux-object28-lr-capacity-seed-grid-v1",
+  "subjects": [
+    {
+      "dataset_sha": "4838f43a8e0397a828221048a88016f5f9ae7452e24103dd0ea7da769093941e",
+      "id": "backpack",
+      "source": {
+        "dataset_image_count": 6,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/backpack",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks backpack",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks backpack",
+          "a color drawing of sks backpack",
+          "sks backpack at the beach",
+          "a photo of sks backpack in the snow",
+          "a photo of a backpack"
+        ],
+        "seed": 0,
+        "test_size": 2,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "1eba8a9bbeee4c899875eda7708256de9d660e40b0a1c3b09aa006919c67f8d4",
+      "id": "backpack_dog",
+      "source": {
+        "dataset_image_count": 5,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/backpack_dog",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks backpack",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks backpack",
+          "a color drawing of sks backpack",
+          "sks backpack at the beach",
+          "a photo of sks backpack in the snow",
+          "a photo of a backpack"
+        ],
+        "seed": 0,
+        "test_size": 1,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "d45fad5d30b8b7e2fc016130e36273cc350b07d2e1c96f231926be7e1b9c265f",
+      "id": "bear_plushie",
+      "source": {
+        "dataset_image_count": 5,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/bear_plushie",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks stuffed animal",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks stuffed animal",
+          "a color drawing of sks stuffed animal",
+          "sks stuffed animal at the beach",
+          "a photo of sks stuffed animal in the snow",
+          "a photo of a stuffed animal"
+        ],
+        "seed": 0,
+        "test_size": 1,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "10650aa433c4e4c29b00f5a527aea2577c9bfd701f9418e32e7ba92a70a49f69",
+      "id": "berry_bowl",
+      "source": {
+        "dataset_image_count": 6,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/berry_bowl",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks bowl",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks bowl",
+          "a color drawing of sks bowl",
+          "sks bowl at the beach",
+          "a photo of sks bowl in the snow",
+          "a photo of a bowl"
+        ],
+        "seed": 0,
+        "test_size": 2,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "beabd5b5bb267fa95272c69a8de90009abda0b353512e2d868c884bbc6997290",
+      "id": "can",
+      "source": {
+        "dataset_image_count": 6,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/can",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks can",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks can",
+          "a color drawing of sks can",
+          "sks can at the beach",
+          "a photo of sks can in the snow",
+          "a photo of a can"
+        ],
+        "seed": 0,
+        "test_size": 2,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "94ae8785ad6455afd9945fbb78bd1187df1091adfa6e36db6d170fc2dcbef5b2",
+      "id": "candle",
+      "source": {
+        "dataset_image_count": 5,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/candle",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks candle",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks candle",
+          "a color drawing of sks candle",
+          "sks candle at the beach",
+          "a photo of sks candle in the snow",
+          "a photo of a candle"
+        ],
+        "seed": 0,
+        "test_size": 1,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "49aa784a69ee7cecba2b30b59b3c148586a57276c0f0d2bcf32d5608d5d12fea",
+      "id": "cat",
+      "source": {
+        "dataset_image_count": 5,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/cat",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks cat",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks cat",
+          "a color drawing of sks cat",
+          "sks cat at the beach",
+          "a photo of sks cat in the snow",
+          "a photo of a cat"
+        ],
+        "seed": 0,
+        "test_size": 1,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "0ab75bfa31e705345a26d0b59b75ce893da68ae3de43fe2cd9e2bacd3f1b14e5",
+      "id": "cat2",
+      "source": {
+        "dataset_image_count": 5,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/cat2",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks cat",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks cat",
+          "a color drawing of sks cat",
+          "sks cat at the beach",
+          "a photo of sks cat in the snow",
+          "a photo of a cat"
+        ],
+        "seed": 0,
+        "test_size": 1,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "30583203f4cbd4e4b6771aa9bea7856bbb732aafc35a9648706145ce693c5e4b",
+      "id": "clock",
+      "source": {
+        "dataset_image_count": 6,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/clock",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks clock",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks clock",
+          "a color drawing of sks clock",
+          "sks clock at the beach",
+          "a photo of sks clock in the snow",
+          "a photo of a clock"
+        ],
+        "seed": 0,
+        "test_size": 2,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "b0276fb22ac7f1e7f3402eeed12715d855ec1ff8a518fd4f0a7170fe5fddb6fa",
+      "id": "colorful_sneaker",
+      "source": {
+        "dataset_image_count": 5,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/colorful_sneaker",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks sneaker",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks sneaker",
+          "a color drawing of sks sneaker",
+          "sks sneaker at the beach",
+          "a photo of sks sneaker in the snow",
+          "a photo of a sneaker"
+        ],
+        "seed": 0,
+        "test_size": 1,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "ff0663fb4fd6f7f013d376586d274b8f34cb0e1da56c6a2d4308d4688690272d",
+      "id": "dog",
+      "source": {
+        "dataset_image_count": 5,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/dog",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks dog",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks dog",
+          "a color drawing of sks dog",
+          "sks dog at the beach",
+          "a photo of sks dog in the snow",
+          "a photo of a dog"
+        ],
+        "seed": 0,
+        "test_size": 1,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "e068b83a6d80efca10ef69fb37e5fb2b5aadcbf68902948a1890a6084007933f",
+      "id": "dog2",
+      "source": {
+        "dataset_image_count": 6,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/dog2",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks dog",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks dog",
+          "a color drawing of sks dog",
+          "sks dog at the beach",
+          "a photo of sks dog in the snow",
+          "a photo of a dog"
+        ],
+        "seed": 0,
+        "test_size": 2,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "870fed9d57819f31ddea4cef598848cfe2c9f0c07f71bba0dce5157cb0b56162",
+      "id": "dog3",
+      "source": {
+        "dataset_image_count": 6,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/dog3",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks dog",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks dog",
+          "a color drawing of sks dog",
+          "sks dog at the beach",
+          "a photo of sks dog in the snow",
+          "a photo of a dog"
+        ],
+        "seed": 0,
+        "test_size": 2,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "2665c81eaf38da21f64890001ba773017ce8e3c50ae2c8df8b76066f3d8a41d5",
+      "id": "dog5",
+      "source": {
+        "dataset_image_count": 5,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/dog5",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks dog",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks dog",
+          "a color drawing of sks dog",
+          "sks dog at the beach",
+          "a photo of sks dog in the snow",
+          "a photo of a dog"
+        ],
+        "seed": 0,
+        "test_size": 1,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "131d8c22a64755a26a9e67cf9c8acc62b50a95387b465dd72e7cb52db34a1538",
+      "id": "dog6",
+      "source": {
+        "dataset_image_count": 5,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/dog6",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks dog",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks dog",
+          "a color drawing of sks dog",
+          "sks dog at the beach",
+          "a photo of sks dog in the snow",
+          "a photo of a dog"
+        ],
+        "seed": 0,
+        "test_size": 1,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "2038a2a9eddc772730c48bc969684dbb035db922a92b7b6646a0543103631630",
+      "id": "dog7",
+      "source": {
+        "dataset_image_count": 5,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/dog7",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks dog",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks dog",
+          "a color drawing of sks dog",
+          "sks dog at the beach",
+          "a photo of sks dog in the snow",
+          "a photo of a dog"
+        ],
+        "seed": 0,
+        "test_size": 1,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "0edb65c4df73afd76c81dbd786225dc27f84558658e2f91dde93511a0ea8ecf1",
+      "id": "dog8",
+      "source": {
+        "dataset_image_count": 5,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/dog8",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks dog",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks dog",
+          "a color drawing of sks dog",
+          "sks dog at the beach",
+          "a photo of sks dog in the snow",
+          "a photo of a dog"
+        ],
+        "seed": 0,
+        "test_size": 1,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "74718a663ca16f6d755215d2c8ab40cf5c93a4800f93948433754ddfbe08127f",
+      "id": "fancy_boot",
+      "source": {
+        "dataset_image_count": 6,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/fancy_boot",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks boot",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks boot",
+          "a color drawing of sks boot",
+          "sks boot at the beach",
+          "a photo of sks boot in the snow",
+          "a photo of a boot"
+        ],
+        "seed": 0,
+        "test_size": 2,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "66627f3bac4e21b74a2043565db9eed2210f4d39be74b40fbb452eb2e50a8864",
+      "id": "grey_sloth_plushie",
+      "source": {
+        "dataset_image_count": 5,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/grey_sloth_plushie",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks stuffed animal",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks stuffed animal",
+          "a color drawing of sks stuffed animal",
+          "sks stuffed animal at the beach",
+          "a photo of sks stuffed animal in the snow",
+          "a photo of a stuffed animal"
+        ],
+        "seed": 0,
+        "test_size": 1,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "799611a784692571bd24fb6b841bfdc5faee7507a084dc6601def0584c675b19",
+      "id": "monster_toy",
+      "source": {
+        "dataset_image_count": 5,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/monster_toy",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks toy",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks toy",
+          "a color drawing of sks toy",
+          "sks toy at the beach",
+          "a photo of sks toy in the snow",
+          "a photo of a toy"
+        ],
+        "seed": 0,
+        "test_size": 1,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "9c261cb6e126395dc42faf2071a8d9f0bae299bdf26197f537909a58f43d2812",
+      "id": "pink_sunglasses",
+      "source": {
+        "dataset_image_count": 6,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/pink_sunglasses",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks glasses",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks glasses",
+          "a color drawing of sks glasses",
+          "sks glasses at the beach",
+          "a photo of sks glasses in the snow",
+          "a photo of a glasses"
+        ],
+        "seed": 0,
+        "test_size": 2,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "69903ba50c7f092be506dd410e8290b6bb0fa8b9f515f1495b4d240d1fa5065c",
+      "id": "poop_emoji",
+      "source": {
+        "dataset_image_count": 5,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/poop_emoji",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks toy",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks toy",
+          "a color drawing of sks toy",
+          "sks toy at the beach",
+          "a photo of sks toy in the snow",
+          "a photo of a toy"
+        ],
+        "seed": 0,
+        "test_size": 1,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "2430250c8bd9a2935fbe525e669c397e4257848484aeb0013f9f67195d8279e2",
+      "id": "rc_car",
+      "source": {
+        "dataset_image_count": 5,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/rc_car",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks toy",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks toy",
+          "a color drawing of sks toy",
+          "sks toy at the beach",
+          "a photo of sks toy in the snow",
+          "a photo of a toy"
+        ],
+        "seed": 0,
+        "test_size": 1,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "c57df2f1ccecc8ee86a0b6cbcb20c830844eb94a1fb35a430c392895a3b2f321",
+      "id": "robot_toy",
+      "source": {
+        "dataset_image_count": 5,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/robot_toy",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks toy",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks toy",
+          "a color drawing of sks toy",
+          "sks toy at the beach",
+          "a photo of sks toy in the snow",
+          "a photo of a toy"
+        ],
+        "seed": 0,
+        "test_size": 1,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "7bf0d3f606346ed19fd411c76f0593488827ef2bba20aa253ed8927959b30f3d",
+      "id": "shiny_sneaker",
+      "source": {
+        "dataset_image_count": 6,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/shiny_sneaker",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks sneaker",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks sneaker",
+          "a color drawing of sks sneaker",
+          "sks sneaker at the beach",
+          "a photo of sks sneaker in the snow",
+          "a photo of a sneaker"
+        ],
+        "seed": 0,
+        "test_size": 2,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "6f4896c017cd6cf846df8c4e35369fdec8e0df4299a4eaf0e60124888354a660",
+      "id": "teapot",
+      "source": {
+        "dataset_image_count": 5,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/teapot",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks teapot",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks teapot",
+          "a color drawing of sks teapot",
+          "sks teapot at the beach",
+          "a photo of sks teapot in the snow",
+          "a photo of a teapot"
+        ],
+        "seed": 0,
+        "test_size": 1,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "2a5d9ec90125f68e07415920c536e8a7c7f2d80ad217e6c728579703c45d65a8",
+      "id": "vase",
+      "source": {
+        "dataset_image_count": 6,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/vase",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks vase",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks vase",
+          "a color drawing of sks vase",
+          "sks vase at the beach",
+          "a photo of sks vase in the snow",
+          "a photo of a vase"
+        ],
+        "seed": 0,
+        "test_size": 2,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    },
+    {
+      "dataset_sha": "a39b763c9d0f162f75459cfd88ce5bc500066a4792dc913314b696db4c1cbe2d",
+      "id": "wolf_plushie",
+      "source": {
+        "dataset_image_count": 5,
+        "dataset_repository": "google/dreambooth",
+        "dataset_revision": "dc09c9867a20ecaa1f1f6f079a4e6515cce40cc6"
+      },
+      "training_config": {
+        "autocast_adapter_dtype": true,
+        "batch_size": 2,
+        "batch_size_eval": 1,
+        "compile": false,
+        "dataset_id": "subjects/wolf_plushie",
+        "dataset_split": "train",
+        "dino_image_size": 224,
+        "dino_model_id": "facebook/dinov2-base",
+        "drift_image_prompts": [
+          "a photo of cat",
+          "a color drawing of cat",
+          "cat sitting in a bathtub",
+          "cat looks into a mirror",
+          "a photo of cat next to a tree",
+          "the Mona Lisa but she looks angry",
+          "a dog holding a sign that says hello world",
+          "a photo of the Eiffel tower at night",
+          "an astronaut riding a horse",
+          "3d design concept of a chair that looks like an avocado"
+        ],
+        "dtype": "bfloat16",
+        "eval_steps": 100,
+        "grad_norm_clip": 1.0,
+        "guidance_scale": 3.5,
+        "image_column": "image",
+        "instance_prompts": "a photo of sks stuffed animal",
+        "logit_mean": 0.0,
+        "logit_std": 1.0,
+        "lr_scheduler": null,
+        "max_sequence_length": 512,
+        "max_steps": 750,
+        "mode_scale": 1.29,
+        "model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+        "num_inference_steps": 20,
+        "optimizer_kwargs": {
+          "lr": 5e-05,
+          "weight_decay": 0.0001
+        },
+        "optimizer_type": "AdamW",
+        "repeats": 1000,
+        "resolution": 512,
+        "sample_image_prompts": [
+          "a photo of sks stuffed animal",
+          "a color drawing of sks stuffed animal",
+          "sks stuffed animal at the beach",
+          "a photo of sks stuffed animal in the snow",
+          "a photo of a stuffed animal"
+        ],
+        "seed": 0,
+        "test_size": 1,
+        "text_encoder_out_layers": [
+          10,
+          20,
+          30
+        ],
+        "use_amp": false,
+        "use_gc": true,
+        "valid_size": 1,
+        "weighting_scheme": "none"
+      }
+    }
+  ],
+  "test_step": 750,
+  "validation_step": 700
+}

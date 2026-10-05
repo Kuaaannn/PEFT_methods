@@ -1,0 +1,10 @@
+"""One source of truth for the Qwen/Llama standard GSM8K dev evaluation."""
+
+GSM8K_DEV_N = 1000
+GSM8K_MAX_NEW_TOKENS = 300
+GSM8K_MAX_LENGTH = 800
+GSM8K_ENGINE_MAX_MODEL_LEN = 1024
+GSM8K_TEMPERATURE = 0.0
+GSM8K_SEED = 0
+GSM8K_DO_SAMPLE = False
+GSM8K_NUM_BEAMS = 1

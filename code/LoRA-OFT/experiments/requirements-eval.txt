@@ -1,0 +1,10 @@
+# Evaluation environment -- a SEPARATE venv. vLLM and PEFT/accelerate have conflicting
+# dependency sets, so they are never installed together; they communicate over the
+# filesystem (eval/server.py).
+vllm==0.10.2
+transformers==4.56.2
+datasets>=3.0
+safetensors>=0.4
+pandas>=2.0
+pyarrow>=15.0
+math-verify>=0.5

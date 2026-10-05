@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "peft"
+version = "0.20.0+local"
+description = "Bundled PEFT 0.20.0 with standard OFT and compact-WY HRA"
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+include = ["peft*"]
+
+[tool.setuptools.package-data]
+peft = ["py.typed", "tuners/boft/fbd/*.cpp", "tuners/boft/fbd/*.cu"]

@@ -1,0 +1,11 @@
+# Small extras ONLY. Installed with --no-deps in the new task overlay.
+# Torch/CUDA/Transformers/PEFT/datasets stay in the existing, read-only math env.
+# EvalPlus API-provider integrations are unused and deliberately not installed.
+wget==3.2
+tempdir==0.7.1
+multipledispatch==1.0.0
+appdirs==1.4.4
+termcolor==3.1.0
+fire==0.7.1
+tree-sitter==0.25.2
+tree-sitter-python==0.25.0

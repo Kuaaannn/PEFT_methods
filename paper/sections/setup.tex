@@ -1,0 +1,32 @@
+\section{Methods and study design}\label{sec:protocol}
+
+We consider six representative PEFT algorithms: LoRA \citep{hu2022lora}, DoRA \citep{liu2024dora}, PiSSA \citep{meng2024pissa}, MiLoRA \citep{wang2025milora}, OFT \citep{qiu2023oft}, and HRA \citep{yuan2024hra}.
+
+\paragraph{Parameterizations.}
+The six methods span low-rank addition, magnitude--direction decomposition, spectral initialization and orthogonal transformations.
+For pretrained $\bm W_0\in\mathbb R^{m\times n}$, \Cref{tab:parameterizations} summarizes the six methods. The low-rank factors are $\bm B\in\mathbb R^{m\times r}$ and $\bm A\in\mathbb R^{r\times n}$, with scale $s=\alpha/r$. PiSSA and MiLoRA freeze $\bm W_{\mathrm{res}}=\bm W_0-s\bm B_0\bm A_0$, preserving the starting model. For DoRA, $\mathcal N$ normalizes each row and $\bm m$ contains learned row magnitudes.
+HRA uses $\bm u_i$ with $\|\bm u_i\|_2=1$.
+OFT uses Cayley blocks $\bm R_j=(\bm I+\bm Q_j)(\bm I-\bm Q_j)^{-1}$ with skew-symmetric $\bm Q_j$.
+Our experiments use the OFTv2 implementation, which approximates the Cayley inverse with a truncated Neumann series \citep{qiu2025oftv2}. The resulting transform is only approximately orthogonal. Appendix~\ref{app:native-orthogonality} quantifies this deviation, and all functional evaluations use the native implementation.
+
+\begin{table}[!htbp]
+\caption{Selected PEFT methods and their parameterizations.}
+\label{tab:parameterizations}
+\begin{center}
+\begin{tabular}{@{}p{.12\linewidth}p{.39\linewidth}p{.43\linewidth}@{}}
+\toprule
+Method & Adapted matrix $\bm W_*$ & Initialization or structure \\
+\midrule
+\textcolor{LoRAColor}{LoRA} & $\bm W_0+s\bm B\bm A$ & Zero initial update \\
+\textcolor{DoRAColor}{DoRA} & $\operatorname{diag}(\bm m)\mathcal N(\bm W_0+s\bm B\bm A)$ & Learned magnitudes and directions \\
+\textcolor{PiSSAColor}{PiSSA} & $\bm W_{\mathrm{res}}+s\bm B\bm A$ & Leading singular components \\
+\textcolor{MiLoRAColor}{MiLoRA} & $\bm W_{\mathrm{res}}+s\bm B\bm A$ & Trailing singular components \\
+\textcolor{OFTColor}{OFT} & $\bm W_0\bm R$ & $\bm R=\operatorname{blkdiag}(\bm R_j)$ \\
+\textcolor{HRAColor}{HRA} & $\bm W_0\bm R$ & $\bm R=\prod_{i=1}^{r_H}(\bm I-2\bm u_i\bm u_i^{\!\top})$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+\paragraph{Experiment setup.}
+We evaluate mathematics, coding and diffusion personalization, reporting means and sample SDs over three training seeds unless otherwise specified. Qwen2.5-7B \citep{qwen2024model} and Llama-3.1-8B \citep{dubey2024llama3} each train on 20,000 examples per task from MetaMath \citep{yu2024metamath} for mathematics and CodeFeedback \citep{zheng2024opencodeinterpreter} for coding. Methods share data exposure and adapted modules, with approximately matched parameter budgets. We select LRs by mean GSM8K \citep{cobbe2021gsm8k} development accuracy for mathematics or held-out response NLL for coding, then report held-out GSM8K accuracy and greedy HumanEval+/MBPP+ pass@1 \citep{liu2023evalplus}. FineWiki \citep{penedo2025finewiki} $\Delta\mathrm{NLL}=\mathrm{NLL}_*-\mathrm{NLL}_0$ measures forgetting, with lower values indicating better retention. For FLUX.2-klein-base-4B personalization \citep{bfl2026klein}, we compare all six methods on the benchmark cat at four approximately matched budgets and extend the LoRA/OFT comparison to 28 objects \citep{ruiz2023dreambooth}. Validation DINO \citep{oquab2023dinov2} selects LRs, while held-out test DINO measures fidelity. Base-image drift, CLIP alignment \citep{radford2021clip} and COCO flow loss \citep{lin2014coco} assess complementary retention outcomes. Spectral interventions use the same development/validation selection criteria across all six methods on mathematics and diffusion and jointly edit all adapted matrices. Each Pareto point represents one capacity/LR configuration.

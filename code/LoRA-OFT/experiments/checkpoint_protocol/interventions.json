@@ -1,0 +1,54 @@
+[
+  {
+    "operator": "spectrum_only",
+    "params": {}
+  },
+  {
+    "operator": "left_orientation_only",
+    "params": {
+      "gap_rtol": 0.0001
+    }
+  },
+  {
+    "operator": "right_orientation_only",
+    "params": {
+      "gap_rtol": 0.0001
+    }
+  },
+  {
+    "operator": "rotation_band_restore",
+    "params": {
+      "band": "top"
+    }
+  },
+  {
+    "operator": "rotation_band_restore",
+    "params": {
+      "band": "mid"
+    }
+  },
+  {
+    "operator": "rotation_band_restore",
+    "params": {
+      "band": "bottom"
+    }
+  },
+  {
+    "operator": "rotation_band_preserve",
+    "params": {
+      "band": "top"
+    }
+  },
+  {
+    "operator": "rotation_band_preserve",
+    "params": {
+      "band": "mid"
+    }
+  },
+  {
+    "operator": "rotation_band_preserve",
+    "params": {
+      "band": "bottom"
+    }
+  }
+]

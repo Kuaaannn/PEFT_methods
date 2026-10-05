@@ -1,0 +1,8 @@
+{
+  "base_model_id": "black-forest-labs/FLUX.2-klein-base-4B",
+  "expected_trainable_params": 20060160,
+  "lora_rank_anchor": 16,
+  "method": "dora",
+  "schema_version": 1,
+  "training_rank": 16
+}
