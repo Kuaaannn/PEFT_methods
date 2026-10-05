@@ -53,4 +53,8 @@ Plotting requires pdfLaTeX. Building the manuscript requires `latexmk` and pdfLa
 
 The `data/` directory contains the frozen retention sample and literature annotations needed as inputs. Generated experiment results, checkpoints and development artifacts are not included.
 
-Upstream licenses and notices remain with the source files. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+## Acknowledgments
+
+Our code is based on the [Hugging Face PEFT library](https://github.com/huggingface/peft) and its [MetaMathQA benchmark for LLM mathematics](https://github.com/huggingface/peft/tree/main/method_comparison/MetaMathQA) and [image generation benchmark](https://github.com/huggingface/peft/tree/main/method_comparison/image-gen). We thank the PEFT authors and contributors for these open-source implementations.
+
+Please also credit these upstream projects when building on this code. Source links and attribution are provided in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), with references in [CITATION.cff](CITATION.cff). Upstream licenses and copyright notices are retained.

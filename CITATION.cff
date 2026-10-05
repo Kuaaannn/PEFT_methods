@@ -11,3 +11,33 @@ authors:
   - family-names: Liu
     given-names: Fanghui
 repository-code: https://github.com/Kuaaannn/PEFT_methods
+references:
+  - type: software
+    title: "PEFT: State-of-the-art Parameter-Efficient Fine-Tuning methods"
+    authors:
+      - family-names: Mangrulkar
+        given-names: Sourab
+      - family-names: Gugger
+        given-names: Sylvain
+      - family-names: Debut
+        given-names: Lysandre
+      - family-names: Belkada
+        given-names: Younes
+      - family-names: Paul
+        given-names: Sayak
+      - family-names: Bossan
+        given-names: Benjamin
+      - family-names: Tietz
+        given-names: Marian
+    year: 2022
+    url: https://github.com/huggingface/peft
+  - type: software
+    title: PEFT method comparison on the MetaMathQA and GSM8K datasets
+    authors:
+      - name: Hugging Face PEFT contributors
+    url: https://github.com/huggingface/peft/tree/main/method_comparison/MetaMathQA
+  - type: software
+    title: PEFT method comparison on a DreamBooth-style image generation task
+    authors:
+      - name: Hugging Face PEFT contributors
+    url: https://github.com/huggingface/peft/tree/main/method_comparison/image-gen
