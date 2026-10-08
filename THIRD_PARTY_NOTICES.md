@@ -13,3 +13,9 @@ The language and image PEFT snapshots retain their upstream copyright notices an
 EvalPlus is downloaded from its pinned public repository when requested by the preparation command. Its license remains with that repository. Models and datasets are subject to their own licenses and access terms.
 
 The retained FineWiki evaluation sample is attributed to HuggingFaceFW/FineWiki and its underlying Wikipedia contributors. Consult the [dataset documentation](https://huggingface.co/datasets/HuggingFaceFW/finewiki) for the source terms.
+
+## README icons
+
+`assets/arxiv-icon.png` is the official 32px arXiv favicon, retained unchanged from https://arxiv.org/static/browse/0.3.4/images/icons/favicon-32x32.png (retrieved 8 October 2026).
+
+`assets/project-icon.svg` is this project's existing three-bar favicon, extracted without changing its shapes or colors. The same SVG is used by both local project-page copies.
